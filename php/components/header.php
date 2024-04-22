@@ -13,7 +13,7 @@
             <ul>
             <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Visit</a></li>
+                <li><a href="#">Eventi</a></li>
                 <li><a href="#">Server</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
