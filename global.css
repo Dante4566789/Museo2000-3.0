@@ -1,11 +1,15 @@
+@font-face {
+    font-family: Ozeum;
+    src: url(public/assets/font/Metropolis-Regular.otf);
+ }
+
 *{
     margin : 0;
     padding : 0;
     box-string : border-box;
-    font-family : 'Poppins', sans-serif;
+    font-family : 'Ozeum', sans-serif;
     align-items: center;
-
-
+    width : 100%;
 
 }
 
@@ -24,7 +28,7 @@ header {
     justify-content: space-between;
     align-items : center;
     transition : 0.6s; 
-    padding : 40px 100px;
+    padding : 40px 70px;
     border-bottom : 1px solid;
     box-shadow: 0 4px 8px -5px rgb(49, 49, 49);
     
@@ -49,13 +53,22 @@ header .logo {
     transition: 0.6s;
 }
 
+header.sticky{
+    padding : 25px 50px;
+    background : #1E1E19;
+}
+
 header ul{
     position : relative;
     display : flex;
     justify-content : center;
     align-items : center;
-    right: 120px;
+    right: 90px;
     
+}
+
+header.sticky ul{
+    right : 50px;
 }
 
 header ul li{
@@ -75,11 +88,57 @@ header ul li a {
     transition : 0.6s;
 }
 
-.banner 
+header.sticky .logo,
+header.sticky ul li a{
+    color : #EBE9CF;
+
+
+}
+
+.banner_home
 {
     position : relative;
     width : 100%;
-    height: 150vh;
+    height: 100vh;
     background : url(/public/assets/home_01.jpg);
-    background-size: cover;
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position: center;
+}
+
+
+.hero_section_01{
+    height: 500px;
+    
+    padding-bottom : 0px;
+    padding-top: 0px;
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+    gap: auto;
+    background-color: #F0ECE0;
+
+    
+}
+.hero_section_01 img{
+    width : 50%;
+    height : 500px;
+    object-fit: cover;
+}
+
+.hero_text{
+    width : 80%;
+    padding-right : 30px;
+}
+
+.hero_text h1{
+    font-size : 3.3em;
+    margin-bottom : 20px;
+    color : #000;
+    padding : auto;
+}
+
+.hero_text p {
+    font-size : 1.3em;
+    line-height : 27px;
 }

@@ -19,7 +19,8 @@
             </ul>
 
     </header>
-    <section class="banner"></section>
+    
+    
 
 </body>
 </html>
