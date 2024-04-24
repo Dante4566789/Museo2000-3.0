@@ -49,10 +49,6 @@
       </div>
       <img src="../public/assets/home_05.jpg">
       <div class="hero_text_vertical">
-        <div class="container_hero_text_vertical_01">
-          <h1>Titolo Evento</h1>
-          <p class="hero_text_little">data</p>
-        </div>
         <p class="hero_text_normal">Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione</p>
         <button class="hero_section_02_button_02">EVENTI</button>
       </div>
@@ -69,8 +65,8 @@
         <h1>Visita il MUSEO2000</h1>
         <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
         considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una
-        cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque
-        secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso
+        cassetta di caratteri e li assemblò per preparare un testo campione.<br></br> È sopravvissuto non solo a più di cinque
+        secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. <br></br>Fu reso
         popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano
         passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva
         versioni del Lorem Ipsum.</p>
@@ -79,7 +75,10 @@
 
    </div>
 
-   <div class="hero_section_04">DOCTYPE</div>
+   <div class="hero_section_04">
+    <h2>Solo a <strong>MUSEO2000</strong> vedi <strong>2000 anni</strong> di storia e arte</h2>
+    <button>Vieni a Trovarci!</button>
+   </div>
   
 
 

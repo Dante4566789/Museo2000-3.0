@@ -11,12 +11,14 @@
     
     box-sizing: border-box;
     width : 100%;
+    z-index : 1;
 
 }
 
 body {
     background :#F7F6EC;
     min-height:200vh;
+    
 
 }
 
@@ -101,7 +103,7 @@ header.sticky ul li a{
 {
     position : relative;
     width : 100%;
-    height: 100vh;
+    
     background : url(/public/assets/home_01.jpg);
     background-size : cover;
     background-repeat : no-repeat;
@@ -117,11 +119,12 @@ header.sticky ul li a{
     align-items: center;
     vertical-align: center;
     padding-top: 250px;
-    height : 300px;
+    padding-bottom : 300px;
+   
 }
 .hero_box .hero_heading{
     color:#EBE9CF;
-    font-size : 5em;
+    font-size : 500%;
     text-align: center;
     text-shadow : 0px 3px 5px #000;
 
@@ -131,12 +134,12 @@ header.sticky ul li a{
 
 
 .hero_section_01{
-    height: 500px;
+  
     
     padding-bottom : 0px;
     padding-top: 0px;
     display : flex;
-    justify-content : space-between;
+    justify-content : center;
     align-items : center;
     gap: auto;
     background-color: #F0ECE0;
@@ -145,7 +148,7 @@ header.sticky ul li a{
 }
 .hero_section_01 img{
     width : 50%;
-    height : 500px;
+    height : 100%;
     object-fit: cover;
 }
 
@@ -155,14 +158,14 @@ header.sticky ul li a{
 }
 
 .hero_text h1{
-    font-size : 3.3em;
+    font-size : 40px;
     margin-bottom : 20px;
     color : #000;
     padding : auto;
 }
 
 .hero_text p {
-    font-size : 1.3em;
+    font-size : 18px;
     line-height : 27px;
 }
 
@@ -189,14 +192,18 @@ header.sticky ul li a{
 
 .hero_section_02{
     background-color: #F7F6EC;
-    height : 100vh;
+    
     padding-bottom : 50px;
     padding-top : 70px;
     margin :auto ; 
-    width : 1140px;
+   
    
     justify-content: center ;
    position : relative;
+    z-index :0;
+    padding-left : 50px;
+    padding-right : 50px;
+    width : 100%;
 
 }
 
@@ -205,6 +212,8 @@ header.sticky ul li a{
     padding-bottom : 20px;
     border-bottom : 3px solid;
     font-size : 2.3em;
+    
+    
     
 }
 .hero_text_02 button{
@@ -224,7 +233,7 @@ header.sticky ul li a{
     padding-top : 20px;
 }
 
-.hero_section_02 button{
+button{
     padding-bottom : 15px;
     padding-top : 15px;
     padding-left : 15px;
@@ -242,12 +251,9 @@ header.sticky ul li a{
     
 }
 
-.hero_section_02 .hero_section_02_button_02{
-    position : absolute;
-    left : 0%;
-}
 
-.hero_section_02 button:hover{
+
+button:hover{
     transition : 0.6s;
     background-color : #000;
     color : #ffff;
@@ -256,36 +262,25 @@ header.sticky ul li a{
 
 }
 
+
 .hero_section_02 .hero_text_vertical{
+    display : grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    gap : 30px;
+    padding-top : 25px;
     display : flex;
-    flex-direction: column-reverse;
-    flex-direction: row-reverse;
-    position : absolute;
-   
-    padding-top : 30px;
-    width: 100%;
-
+    justify-content: right;
 }
-
-.hero_section_02 .hero_text_vertical .container_hero_text_vertical_01{
-    display : block;
-    width : 20%;
+.hero_section_02 .hero_text_vertical .hero_section_02_button_02{
     
-
-}
-.hero_section_02 .hero_text_vertical .container_hero_text_vertical_01 h1{
-     padding-bottom : 5px;
-    
-}
-
-.hero_section_02 .hero_text_vertical p{
-    position : absolute;
     width : 40%;
     
-    
-    
 }
-
+.hero_section_02 .hero_text_vertical button{
+   
+    padding : 10px;
+}
 .hero_text_little{
     font-size : 16px;
     color : #93938F;
@@ -300,22 +295,18 @@ header.sticky ul li a{
     color : #93938F;
 }
 
-.hero_section_02 .hero_text_vertical .hero_text_normal{
-    align-items: center;
-    width : 60%;
-    position : relative;
-    left : -3%;
-}
+
 
 
 .hero_section_03{
     width: 100%;
-    margin : 0;
+    
     display : grid;
     grid-template-columns : 50% 50%;
     background-color: #12130D;
-    height : 100vh;
-    vertical-align: middle;
+    
+    margin-top : 50px;
+    margin-bottom : 50px;
     position : relative;
     
 }
@@ -333,12 +324,25 @@ header.sticky ul li a{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap : 37px;
+    padding : 50px 30px 50px 30px;
+    align-items : center;
     
 }
 .hero_section_03 .hero_section_03_text h1{
-    text-align: right;
+    text-align : center ;
+    color : #EBE9CF;
+    font-size : 50px;
 
 }
+
+.hero_section_03 .hero_section_03_text p{
+    text-align : center ;
+    color : #fff;
+    font-size : 20px;
+
+}
+
 
 
 .hero_section_03 .hero_section_03_img img{
@@ -347,9 +351,38 @@ header.sticky ul li a{
    
 }
 
+.hero_section_03 .hero_section_03_text button{
+    align-items: right;
+    width : 70%;
+   
+}
+
+
+
 
 .hero_section_04{
-    padding-top: 50vh;
+    padding-top: 23vh;
+    padding-bottom : 23vh;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    margin : auto;
+    padding-left : 50px;
+    padding-right : 50px;
+    gap : 20px;
+    width : 1140px;
+    align-items : center;
+    width: 100%;
+    
+}
+
+.hero_section_04 h2{
+    text-align : center;
+    font-size : 80px;
+    font-weight : normal;
+}
+.hero_section_04 button{
+    width : 50%
 }
 
 /*FOOTER*/
