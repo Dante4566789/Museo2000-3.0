@@ -14,11 +14,11 @@
   include("../php/components/header.php")
   ?>
   <!--banner home background-->
-  <section class="banner_home">
+  <section style="background-image : url('public/assets/home_01.jpg');" class="banner_home">
     <div class="hero_box">
       <h1 class="hero_heading">Visita il nostro museo</h1>
     </div>
-  </section>
+ </section>
   <script type="text/javascript">
     window.addEventListener("scroll", function() {
       var header = document.querySelector("header");

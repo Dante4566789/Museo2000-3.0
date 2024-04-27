@@ -104,7 +104,6 @@ header.sticky ul li a{
     position : relative;
     width : 100%;
     
-    background : url(/public/assets/home_01.jpg);
     background-size : cover;
     background-repeat : no-repeat;
     background-position: center;
@@ -384,6 +383,14 @@ button:hover{
 .hero_section_04 button{
     width : 50%
 }
+
+
+.lg h1{
+    color : red;
+}
+
+
+
 
 /*FOOTER*/
 .container{
