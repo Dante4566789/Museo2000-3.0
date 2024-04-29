@@ -9,10 +9,10 @@
 <body>
     
     <header>
-        <a href="#" class="logo" >Museo2000</a>
+        <a href="../../pages/home.php" class="logo" >Museo2000</a>
             <ul>
-            <li><a href="#">Visitaci</a></li>
-                <li><a href="#">About</a></li>
+            <li><a href="../../pages/visits.php">Visitaci</a></li>
+                <li><a href="../../pages/home.php#about">About</a></li>
                 <li><a href="#">Eventi</a></li>
                 <li><a href="../pages/login.php">Login</a></li>
                

@@ -14,7 +14,7 @@
   include("../php/components/header.php")
   ?>
   <!--banner home background-->
-  <section style="background-image : url('public/assets/home_01.jpg');" class="banner_home">
+  <section  class="banner_home home">
     <div class="hero_box">
       <h1 class="hero_heading">Visita il nostro museo</h1>
     </div>
@@ -45,7 +45,7 @@
     
       <div class="hero_text_02">
         <h1>Il nostro reparto Eventi</h1>
-        <button class="hero_text_02_button_01">EVENTI</button>
+        <button class="hero_text_02_button_01 .p-white">EVENTI</button>
       </div>
       <img src="../public/assets/home_05.jpg">
       <div class="hero_text_vertical">
@@ -57,9 +57,9 @@
   </div>
 
   <!--hero section 3-->
-   <div class="hero_section_03">
+   <div class="hero_section_03 p6">
       <div class="hero_section_03_img grid_section_03">
-        <img src="../public/assets/home_06.jpg">
+        <img src="../public/assets/home_06.jpg" id="about">
       </div>
       <div class="hero_section_03_text grid_section_03">
         <h1>Visita il MUSEO2000</h1>
@@ -70,14 +70,14 @@
         popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano
         passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva
         versioni del Lorem Ipsum.</p>
-        <button>Guarda Qui</button>
+        <button class="p-black">Guarda Qui</button>
       </div>
 
    </div>
 
    <div class="hero_section_04">
     <h2>Solo a <strong>MUSEO2000</strong> vedi <strong>2000 anni</strong> di storia e arte</h2>
-    <button>Vieni a Trovarci!</button>
+    <button class="p-white">Vieni a Trovarci!</button>
    </div>
   
 
