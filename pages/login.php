@@ -11,20 +11,22 @@
 </head>
 
 <body>
+
+  <!--HTML-->
   <div class="Login">
     <div class="wrapper">
-      <form action="">
+      <form action="../php/server/handler.php" method="POST">
         <h1>Login</h1>
         <div class="input-box">
-          <input type="text" placeholder="Email" required>
+          <input type="text" name="email" placeholder="Email" required>
           <i class='bx bxs-user'></i>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Password" required>
+          <input type="password" name="password" placeholder="Password" required>
           <i class='bx bxs-lock-alt'></i>
         </div>
         <div class="remember-forgot">
-          <label><input type="checkbox">Ricordati di me</label>
+          <label><input name="checkbox" type="checkbox">Ricordati di me</label>
         </div>
         <button type="submit" class="btn">Login</button>
         <div class="register-link">
@@ -34,6 +36,15 @@
     </div>
 
   </div>
+
+
+  <!--PHP-->
+  <?php
+  if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
+    echo "<script>alert('Password o email sbagliata 💀')</script>";
+  }
+  ?>
+
 </body>
 
 </html>
