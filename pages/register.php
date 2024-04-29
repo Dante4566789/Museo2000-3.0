@@ -16,7 +16,7 @@
   <div class="Login">
     <div class="wrapper">
       <form action="login.php" method="POST">
-        <h1>Login</h1>
+        <h1>Registrati</h1>
         <div class="input-box">
           <input type="text" name="email" placeholder="Email" required>
           <i class='bx bxs-user'></i>
@@ -28,7 +28,7 @@
         <div class="remember-forgot">
           <label><input name="checkbox" type="checkbox">Ricordati di me</label>
         </div>
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn">Registrati</button>
         <div class="register-link">
           <p>Vai alla home <a href="home.php">Home</a></p>
         </div>
@@ -40,7 +40,30 @@
 
   <!--PHP-->
   <?php
-  
+     include '../php/server/connection.php';
+     function registra($conn)
+     {
+         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+             
+             $email = $_POST['email'];
+             $password = $_POST['password'];
+ 
+             $hash = password_hash($password, PASSWORD_DEFAULT);
+                 
+             
+             $stmt = $conn->prepare( "INSERT INTO utenti (email, password) VALUES ( ?, ? , ?, ?)");
+             $stmt->bind_param("ss",$email, $hash);
+             $stmt->execute();
+             header('Location: login.php');
+             exit();
+ 
+         }
+     }
+     if (isset($_POST['registrati'])) {
+         registra($conn);
+     }
+ 
+     ?>
   ?>
 
 </body>
