@@ -35,14 +35,9 @@
         </div>
         <div class="hero_section_03_text grid_section_03 ">
             <h1>Visita il MUSEO2000</h1>
-            <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
-                considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una
-                cassetta di caratteri e li assemblò per preparare un testo campione.<br></br> È sopravvissuto non solo a più di cinque
-                secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. <br></br>Fu reso
-                popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano
-                passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva
-                versioni del Lorem Ipsum.</p>
-            <button  onclick="location.href='login.php'">Prenota subito una visita</button>
+            <h2>Prezzi di Ingresso</h2>
+            <hr class="gray-line" size=”1″ width=”300″  noshade>
+            <button  class="p-black"onclick="location.href='login.php'">Prenota subito una visita</button>
         </div>
 
     </div>

@@ -15,7 +15,7 @@
   <!--HTML-->
   <div class="Login">
     <div class="wrapper">
-      <form action="login.php" method="POST">
+      <form  method="post">
         <h1>Registrati</h1>
         <div class="input-box">
           <input type="text" name="email" placeholder="Email" required>
@@ -28,7 +28,7 @@
         <div class="remember-forgot">
           <label><input name="checkbox" type="checkbox">Ricordati di me</label>
         </div>
-        <button type="submit" class="btn">Registrati</button>
+        <button type="submit" name="registrati" class="btn">Registrati</button>
         <div class="register-link">
           <p>Vai alla home <a href="home.php">Home</a></p>
         </div>
@@ -51,7 +51,7 @@
              $hash = password_hash($password, PASSWORD_DEFAULT);
                  
              
-             $stmt = $conn->prepare( "INSERT INTO utenti (email, password) VALUES ( ?, ? , ?, ?)");
+             $stmt = $conn->prepare( "INSERT INTO Utente (email, password) VALUES (?, ?)");
              $stmt->bind_param("ss",$email, $hash);
              $stmt->execute();
              header('Location: login.php');

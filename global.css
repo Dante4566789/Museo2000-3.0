@@ -354,6 +354,16 @@ button:hover{
     
 }
 
+.gray-line{
+    color:rgb(61,62,51);
+    padding-left : 50px;
+    padding-right: 80px;
+}
+
+.hero_section_03_text h2{
+   color : white;
+}
+
 
 
 
@@ -424,7 +434,7 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 50vh;
     background: url("public/assets/bg.jpg") no-repeat;
     background-size: cover;
     background-position: center;
