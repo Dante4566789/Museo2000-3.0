@@ -45,14 +45,22 @@ function check($conn, $email, $password){
                 if($row['ruolo'] == 'admin'){
                     header('Location: ../index/dashboard_admin.php?msg=success');
                     exit();
+                }else if(isset($_GET["biglietto"]) && $_GET["biglietto"] == 'true' ){
+                    header('Location: ../../pages/booking/events.php');
                 }else{
                     header('Location: ../../pages/home.php?msg=success');
                     exit();
                 }
             }
         }
-        header('Location: ../../pages/login?msg=failed');
+        /*if(isset($_GET["biglietto"]) && $_GET["biglietto"] == 'failed' ){
+            header('Location: ../../pages/login.php?biglietto=failed');
+        }else {
+            header('Location: ../../pages/login.php?msg=failed');
+        }*/
+        header('Location: ../../pages/login.php?msg=failed');
         exit();
+
     }
 }
 

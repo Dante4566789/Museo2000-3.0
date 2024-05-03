@@ -6,16 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museo2000</title>
   <link rel="stylesheet" href="../globall.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
   <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
 </head>
 
 <body>
-
+ 
   <!--HTML-->
   <div class="Login">
     <div class="wrapper">
-      <form action="../php/server/handler.php" method="POST">
+      <form action="../php/server/handler.php" id="Myform" method="POST">
         <h1>Login</h1>
         <div class="input-box">
           <input type="text" name="email" placeholder="Email" required>
@@ -36,13 +36,12 @@
     </div>
 
   </div>
-
-
-  <!--PHP-->
   <?php
-  if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
-    echo "<script>alert('Password o email sbagliata 💀')</script>";
-  }
+
+
+    if(isset($_GET["msg"]) && $_GET["msg"] == 'failed'){
+      echo "<script>alert('Login non effettuato')</script>";
+    }
   ?>
 
 </body>

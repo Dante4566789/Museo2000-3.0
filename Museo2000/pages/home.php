@@ -13,16 +13,6 @@
   <?php //header
   include("../php/components/header.php")
   ?>
-  <!--banner home background-->
-  <!--<section style="
-    background-image: url('ozeum.themerex.net/wp-content/uploads/2019/12/slider-background-video-compress.mp4')" class="banner_home home">
-    <div class="hero_box">
-      <h1 class="hero_heading">Visita il nostro museo</h1>
-    </div>
-  </section>-->
-  <!--<video autoplay loop muted plays-inline>
-    <source src="../public/assets/slider.mp4" type="video/mp4">
-  </video>-->
   <div class="banner_home">
       <video autoplay loop muted plays-inline poster="../public/assets/home_banner.jpg" class="video">
         <source src="../public/assets/slider.mp4" type="video/mp4" />
@@ -31,7 +21,7 @@
       <div class="hero_box_text">
         <h1>Museo2000</h1>
         <h2>Art & History Museum</h2>
-        <button class="p-brown">Prenota Visitia</button>
+        <button class="p-brown">Prenota Visita</button>
     </div>
 
   </div>
@@ -49,8 +39,8 @@
       <h1>Visita il Nostro Museo!</h1>
       <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
         considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una
-        cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque
-        secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso
+        cassetta di caratteri e li assemblò per preparare un testo campione.<br></br> È sopravvissuto non solo a più di cinque
+        secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato.<br></br> Fu reso
         popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano
         passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva
         versioni del Lorem Ipsum.</p>
@@ -83,8 +73,6 @@
       <h2>Prezzi di Ingresso</h2>
       <hr class="gray-line" size=”1″ width=”300″ noshade>
       <div class="sec2">
-        <!--<p class="gray-text border-left">hfsfsfsfsfsfsf</p>
-                <p class="gray-text">fsbfbsbfbsdbfsbdibfbsidbfsdh</p>-->
         <ul class=" sec0 border-left">
           <li class="font25 gray-text">Adulti</li>
           <li class=" font25 gray-text">Ragazzi</li>
@@ -101,8 +89,6 @@
       <h2>Orari di Apertura</h2>
       <hr class="gray-line" size=”1″ width=”300″ noshade>
       <div class="sec2">
-        <!--<p class="gray-text border-left">hfsfsfsfsfsfsf</p>
-                <p class="gray-text">fsbfbsbfbsdbfsbdibfbsidbfsdh</p>-->
         <ul class=" sec0 border-left">
           <li class="font25 gray-text">Adulti</li>
           <li class=" font25 gray-text">Ragazzi</li>
@@ -116,8 +102,6 @@
 
         </ul>
       </div>
-
-
       <button class="p-black">Guarda Qui</button>
     </div>
 

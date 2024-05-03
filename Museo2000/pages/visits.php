@@ -16,7 +16,7 @@
     include("../php/components/header.php")
     ?>
 
-    <section class="banner_home p5">
+    <section class="banner_home home_01 p5">
         <div class="hero_box">
             <h1 class="hero_heading">Visitaci</h1>
         </div>
@@ -72,7 +72,7 @@
       </div>
     
     
-      <button class="p-black" onclick="location.href='login.php'">Prenota subito una visita</button>
+      <button class="p-black" onclick="location.href='booking/visits.php'">Prenota subito una visita</button>
         </div>
     
 
