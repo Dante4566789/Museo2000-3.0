@@ -46,7 +46,10 @@
     </form>
     <?php
         include '../../php/server/connection.php';
+
+        session_start();
         function prenVis ($conn, $email, $data, $quantita, $categoria, $servizio){
+          
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 if(isset($_SESSION['email'])){
@@ -90,7 +93,7 @@
                 
                 $data = date("Y/m/d", strtotime($data));
                 $stmt = $conn->prepare("INSERT INTO Biglietto (Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("sidiii", $email, $evento, $tariffaTotale, $data, $categoria, $servizio);
+                $stmt->bind_param("sidsii", $email, $evento, $tariffaTotale, $data, $categoria, $servizio);
             
                 for ($i = 0; $i < $quantita; $i++) {
                     $stmt->execute();

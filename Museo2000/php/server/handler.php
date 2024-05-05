@@ -33,7 +33,7 @@ $_SESSION['password'] = $password;
 //verifichiamo siano giusti rispetto ai dati del database
 
 function check($conn, $email, $password){
-    $sql = 'SELECT email, password FROM Utente;';
+    $sql = 'SELECT email, password ,tipo FROM Utente;';
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -42,22 +42,18 @@ function check($conn, $email, $password){
     if($result->num_rows > 0){
         while($row = $result->fetch_array(MYSQLI_ASSOC)){
             if($row["email"] == $_SESSION["email"] && password_verify($_SESSION['password'], $row["password"])){
-                if($row['ruolo'] == 'admin'){
-                    header('Location: ../index/dashboard_admin.php?msg=success');
+                if($row["tipo"] == "A"){
+                    session_start();
+                    $_SESSION['ruolo'] = 'A';
+                    header('Location: ../../pages/admin/dashboard_admin.php');
                     exit();
-                }else if(isset($_GET["biglietto"]) && $_GET["biglietto"] == 'true' ){
-                    header('Location: ../../pages/booking/events.php');
                 }else{
                     header('Location: ../../pages/home.php?msg=success');
                     exit();
                 }
             }
         }
-        /*if(isset($_GET["biglietto"]) && $_GET["biglietto"] == 'failed' ){
-            header('Location: ../../pages/login.php?biglietto=failed');
-        }else {
-            header('Location: ../../pages/login.php?msg=failed');
-        }*/
+        
         header('Location: ../../pages/login.php?msg=failed');
         exit();
 

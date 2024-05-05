@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museo2000</title>
-  <link rel="stylesheet" href="../globall.css?v=37">
+  <link rel="stylesheet" href="../global.css?v=37">
   <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
 </head>
 
