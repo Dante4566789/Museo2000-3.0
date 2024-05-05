@@ -92,6 +92,7 @@ header.sticky ul li a {
     flex-direction : column;
     text-align: center;
     align-items: center; 
+    
 }
 
 .hero_box_text{
@@ -99,8 +100,8 @@ header.sticky ul li a {
     position : absolute;
     padding-left : 300px;
     padding-top : 100px;
-    padding-bottom : 150px;
-    top : 250px;
+    padding-bottom : 100px;
+    top : 130px;
    
 }
 .overlay{
@@ -115,6 +116,7 @@ header.sticky ul li a {
     width  :20%;
     text-align: left;
     font-size : 20px;
+    
 }
 
 .p-brown{
@@ -132,12 +134,12 @@ header.sticky ul li a {
     text-align: left;
     padding-bottom : 15px;
     color : #EBE9CF;
-    font-size : 80px;
+    font-size : 60px;
 }
 .hero_box_text h2{
     text-align : left;
     color : #EBE9CF;
-    font-size : 60px;
+    font-size : 50px;
     padding-bottom : 20px;
 }
 
@@ -152,7 +154,9 @@ video{
 video[poster]{
     object-fit: cover;
     height : 100vh;
+    
 }
+
 
 
 
@@ -197,7 +201,7 @@ video[poster]{
 }
 
 .hero_text h1 {
-    font-size: 50px;
+    font-size: 40px;
     margin-bottom: 20px;
     padding-top : 20px;
     color: #000;
@@ -205,8 +209,8 @@ video[poster]{
 }
 
 .hero_text p {
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 20px;
+    line-height: 25px;
     padding-right : 20px;
     padding-bottom : 20px;
 }
@@ -666,6 +670,20 @@ button:hover {
 
 .register-link p a:hover {
     text-decoration: underline;
+}
+
+/*admin*/
+.admin{
+    margin : auto;
+    width : 70%;
+    padding-top : 50px;
+    padding-bottom : 50px;
+
+
+}
+.admin h1{
+    font-size : 50px;
+    color : #EBE9CF;
 }
 
 

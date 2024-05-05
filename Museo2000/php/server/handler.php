@@ -33,7 +33,7 @@ $_SESSION['password'] = $password;
 //verifichiamo siano giusti rispetto ai dati del database
 
 function check($conn, $email, $password){
-    $sql = 'SELECT email, password ,tipo FROM Utente;';
+    $sql = 'SELECT nome, cognome, email, password, tipo FROM Utente;';
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -42,9 +42,11 @@ function check($conn, $email, $password){
     if($result->num_rows > 0){
         while($row = $result->fetch_array(MYSQLI_ASSOC)){
             if($row["email"] == $_SESSION["email"] && password_verify($_SESSION['password'], $row["password"])){
+               
                 if($row["tipo"] == "A"){
                     session_start();
-                    $_SESSION['ruolo'] = 'A';
+                    $_SESSION["nome"]  = $row["nome"];
+                    $_SESSION["tipo"] = 'A';
                     header('Location: ../../pages/admin/dashboard_admin.php');
                     exit();
                 }else{
