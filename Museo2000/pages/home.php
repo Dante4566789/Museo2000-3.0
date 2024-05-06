@@ -11,7 +11,8 @@
 
 <body>
   <?php //header
-  include("../php/components/header.php")
+  include("../php/components/header.php");
+  session_start();
   ?>
   <div class="banner_home">
       <video autoplay loop muted plays-inline poster="../public/assets/home_banner.jpg" class="video">

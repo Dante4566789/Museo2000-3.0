@@ -13,7 +13,8 @@
 
     <!--header-->
     <?php //header
-    include("../php/components/header.php")
+    include("../php/components/header.php");
+   
     ?>
 
     <section class="banner_home home_01 p5">

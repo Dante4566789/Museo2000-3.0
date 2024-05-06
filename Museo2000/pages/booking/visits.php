@@ -51,11 +51,11 @@
         function prenVis ($conn, $email, $data, $quantita, $categoria, $servizio){
           
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                
+                session_start();
                 if(isset($_SESSION['email'])){
                     $email=$_SESSION['email'];
                 }else{
-                    header('Location: ../login.php');
+                    header('Location: ../login.php?prenotazione=fallita');
                 }
                 $data = $_POST['data'];
                 $quantita = $_POST['quantita'];
@@ -98,7 +98,8 @@
                 for ($i = 0; $i < $quantita; $i++) {
                     $stmt->execute();
                 }
-                header('Location: end.php');
+                
+                header("Location: end.php");
                 exit();
             }
         }

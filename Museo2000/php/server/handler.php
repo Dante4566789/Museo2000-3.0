@@ -23,7 +23,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-session_start();
+session_start([
+    'cookie_lifetime' => 86400,
+]);
 $_SESSION['email'] = $email;
 $_SESSION['password'] = $password;
 
@@ -44,12 +46,14 @@ function check($conn, $email, $password){
             if($row["email"] == $_SESSION["email"] && password_verify($_SESSION['password'], $row["password"])){
                
                 if($row["tipo"] == "A"){
-                    session_start();
+                    
                     $_SESSION["nome"]  = $row["nome"];
                     $_SESSION["tipo"] = 'A';
                     header('Location: ../../pages/admin/dashboard_admin.php');
                     exit();
                 }else{
+                    
+                    $_SESSION['nome'] = $row['nome'];
                     header('Location: ../../pages/home.php?msg=success');
                     exit();
                 }
