@@ -117,7 +117,36 @@
                 <input type="date" name="dataFine" required>
                 <button type="submit" name="update">Aggiorna sito</button>
             </form>
+            <?php
+            include("../../php/server/connection.php");
+            function updateEvents($conn)
+            {
+                $nomeEvento = $_POST["nome"];
+                $tariffa = $_POST["tariffa"];
+                $dataInizio = $_POST["dataInizio"];
+                $dataFine = $_POST["dataFine"];
+                $Evento = "Evento";
+                $new_dataInizio = date("Y/m/d", strtotime($dataInizio));
+                $new_dataFine = date("Y/m/d", strtotime($dataFine));
 
+                $stmt = $conn->prepare("INSERT INTO Evento (TipoEvento, DescrizioneE, Tariffa,DataInizio,DataFine) VALUES (?,?,?,?,?)");
+                $stmt->bind_param("ssdss", $Evento, $nomeEvento, $tariffa, $new_dataInizio, $new_dataFine);
+                $stmt->execute();
+
+                $rows_affected = $conn->affected_rows;
+                if ($rows_affected == 0) {
+                    echo "Non è presente questo evetno nel sistema";
+                } else {
+                    echo "Hai aggiunto l'evento";
+                }
+            }
+            
+
+            if (isset($_POST["update"])){
+                updateEvents($conn);
+            }
+
+            ?>
         </div>
 
         <div class="modPrezzi">
@@ -158,7 +187,7 @@
                 $price = $_POST["price"];
 
                 $stmt = $conn->prepare("UPDATE Evento SET Tariffa = ? WHERE DescrizioneE = ?");
-                $stmt->bind_param("ds", $price , $nomeEvento);
+                $stmt->bind_param("ds", $price, $nomeEvento);
                 $stmt->execute();
 
                 $rows_affected = $conn->affected_rows;
@@ -169,14 +198,14 @@
                 }
             }
 
-            if(isset($_POST["modPrezzi"])){
+            if (isset($_POST["modPrezzi"])) {
                 modifyPrice($conn);
             }
             ?>
 
         </div>
 
-        
+
 
 
 

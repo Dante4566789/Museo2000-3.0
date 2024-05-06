@@ -600,7 +600,7 @@ button:hover {
 }
 
 
-
+/*events*/
 .v1{
   padding : 50px 0px 50px 0px;
   display : flex;
@@ -624,12 +624,15 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: left;
+  text-align: left;
   padding-left : 20px;
   
 }
 .text_v1 h1{
   font-size : 50px;
   padding-bottom : 10px;
+  padding-left : 0px;
+  text-align: left;
 }
 .text_v1 p{
 
@@ -641,7 +644,13 @@ button:hover {
 .text_v1 button{
   width : 50%;
 }
-
+.reverse{
+  flex-direction: row-reverse;
+}
+.reverse .text_v1{
+  padding-left : 0px;
+  padding-right : 20px;
+}
 
 /*FOOTER*/
 .container {
