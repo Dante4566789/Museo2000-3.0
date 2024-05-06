@@ -17,9 +17,15 @@
     ?>
 
     <section class="banner_home home_01 p5">
-        <div class="hero_box">
-            <h1 class="hero_heading">Visitaci</h1>
-        </div>
+    <div class="hero_box_text">
+        <h1>Visita</h1>
+        <h2>Il Museo 2000</h2>
+        <button class="p-brown" onclick="redirect()">Prenota Visita</button>
+        <script>
+    		function redirect() {
+        		window.location.href = "visits.php";
+    		}
+		</script>
     </section>
     <script type="text/javascript">
         window.addEventListener("scroll", function() {
