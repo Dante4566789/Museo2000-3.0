@@ -15,7 +15,7 @@
             <ul>
             <li><a href="../pages/visits.php">Visitaci</a></li>
                 <li><a href="../../pages/home.php#about">About</a></li>
-                <li><a href="../../ ">Eventi</a></li>
+                <li><a href="../pages/events.php">Eventi</a></li>
                 <li><a href="../pages/login.php">Login</a></li>
                
             </ul> 

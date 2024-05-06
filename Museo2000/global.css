@@ -635,7 +635,7 @@ button:hover {
   text-align: left;
 }
 .text_v1 p{
-
+  line-height : 24px;
   font-size : 20px;
   padding-bottom : 20px;
 
@@ -650,6 +650,30 @@ button:hover {
 .reverse .text_v1{
   padding-left : 0px;
   padding-right : 20px;
+}
+
+.v2{
+  padding : 50px 0px 50px 0px;
+  display : flex;
+  flex-direction: column;
+  gap : 20px;
+  justify-content: center;
+  width  : 1140px;
+  margin : auto;
+  
+}
+
+.v2 table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.v2 th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+.v2 th {
+  background-color: #f2f2f2;
 }
 
 /*FOOTER*/
