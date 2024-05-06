@@ -21,7 +21,12 @@
       <div class="hero_box_text">
         <h1>Museo2000</h1>
         <h2>Art & History Museum</h2>
-        <button class="p-brown">Prenota Visita</button>
+        <button class="p-brown" onclick="redirect()">Prenota Visita</button>
+        <script>
+    		function redirect() {
+        		window.location.href = "visits.php";
+    		}
+		</script>
     </div>
 
   </div>
@@ -34,7 +39,7 @@
   </script>
   <!--1 hero section-->
   <div class="hero_section_01">
-    <img src="../public//assets/home_04.png">
+    <img src="../public//assets/home_04.png" id="about">
     <div class="hero_text">
       <h1>Visita il Nostro Museo!</h1>
       <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
@@ -52,12 +57,22 @@
 
     <div class="hero_text_02">
       <h1>Il nostro reparto Eventi</h1>
-      <button class="hero_text_02_button_01 .p-white">EVENTI</button>
+      <button class="hero_text_02_button_01 .p-white" onclick="redirect1()">EVENTI</button>
+      <script>
+    		function redirect1() {
+       			window.location.href = "events.php";
+    		}
+		</script>
     </div>
     <img src="../public/assets/home_05.jpg">
     <div class="hero_text_vertical">
       <p class="hero_text_normal">Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione</p>
-      <button class="hero_section_02_button_02">EVENTI</button>
+      <button class="hero_section_02_button_02" onclick="redirect3()">EVENTI</button>
+      <script>
+    		function redirect3() {
+       			window.location.href = "events.php";
+    		}
+		</script>
     </div>
 
 
@@ -66,7 +81,7 @@
   <!--hero section 3-->
   <div class="hero_section_03 p6">
     <div class="hero_section_03_img grid_section_03">
-      <img src="../public/assets/home_06.jpg" id="about">
+      <img src="../public/assets/home_06.jpg" >
     </div>
     <div class="hero_section_03_text grid_section_03">
       <h1 style="text-align:left">Informazioni</h1>
@@ -102,14 +117,24 @@
 
         </ul>
       </div>
-      <button class="p-black">Guarda Qui</button>
+      <button class="p-black" onclick="redirect4()" >Guarda Qui</button>
+      <script>
+    		function redirect4() {
+       			window.location.href = "visits.php";
+    		}
+	   </script>
     </div>
 
   </div>
 
   <div class="hero_section_04">
     <h2>Solo a <strong>MUSEO2000</strong> vedi <strong>2000 anni</strong> di storia e arte</h2>
-    <button class="p-white">Vieni a Trovarci!</button>
+    <button class="p-white" onclick="redirect5()">Vieni a Trovarci!</button>
+    <script>
+    		function redirect5() {
+       			window.location.href = "visits.php";
+    		}
+     </script>
   </div>
 
 
