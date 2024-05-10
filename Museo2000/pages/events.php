@@ -111,9 +111,9 @@
                     $result = $conn->query($sql);
                     while ($row = $result->fetch_assoc()) {
                         if ($row["DescrizioneE"] != "Van_gogh" && $row["DescrizioneE"] != "Basquiat" && $row["DescrizioneE"] != "Frida_Khalo" && $row["DescrizioneE"] != "Visita_museo") {
-                            
+
                             $nome  = $row["DescrizioneE"];
-                            
+
                             echo "<tr>";
                             echo "<td>" . $row["DescrizioneE"] . "</td>";
                             echo "<td>" . $row["DataInizio"] . "</td>";
