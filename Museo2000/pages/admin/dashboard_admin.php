@@ -11,11 +11,18 @@
 
 <body>
 
-    <!--header-->
-    <?php //header
-    include("../../php/components/header.php")
-    ?>
+    <header>
+        <a href="../../../Museo2000/pages/home.php" class="logo" >Museo2000</a>
+            <ul>
+            <li><a href="../../pages/visits.php">Visitaci</a></li>
+                <li><a href="../../pages/home.php#about">About</a></li>
+                <li><a href="../../pages/events.php">Eventi</a></li>
+                <li><a href="../../pages/login.php">Login</a></li>
+               
+            </ul> 
 
+    </header>
+    
     <section class="banner_home home_01 p5">
         <div class="hero_box">
             <h1 class="hero_heading">Pagina admin</h1>
@@ -205,7 +212,28 @@
 
         </div>
 
+        <!--modifica evento-->
+        <div class="modEvents">
+            <h1>Modifica l'evento</h1>
+            <form method="POST">
+                <label>Nome evento</label>
+                <input type="text" name="nomeEvento" required></input>
+                <label>Descrizione Evento</label>
+                <input type="text" name="descrizioneEvento"></input>
+                <label>
+                <label>Prezzo dell'evento</label>
+                <input type="number" name="prezzo"></input>
+                <label>Data dell'inizio dell'evento</label>
+                <input type="date" name="dataInizio"></input>
+                <label>Data dell'inizio dell'evento</label>
+                <input type="date" name="dataFine"></input>
+                <button type="submit" name="modEvento">Modifica l'evento</button>
+            </form>
 
+            <?php 
+                include("../../php/server/connection.php");
+            ?> 
+        </div>
 
 
 

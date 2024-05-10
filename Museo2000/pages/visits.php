@@ -53,9 +53,9 @@
 
         </ul>
         <ul class="sec1">
-          <li class=" font25 gray-text">Adulti</li>
-          <li class=" font25 gray-text">Ragazzi</li>
-          <li class=" font25 gray-text">Bamibini</li>
+          <li class=" font25 gray-text">15.00 €</li>
+          <li class=" font25 gray-text">10.00 €</li>
+          <li class=" font25 gray-text">7.50 €</li>
 
         </ul>
       </div>
@@ -65,15 +65,15 @@
         <!--<p class="gray-text border-left">hfsfsfsfsfsfsf</p>
                 <p class="gray-text">fsbfbsbfbsdbfsbdibfbsidbfsdh</p>-->
         <ul class=" sec0 border-left">
-          <li class="font25 gray-text">Adulti</li>
-          <li class=" font25 gray-text">Ragazzi</li>
-          <li class=" font25 gray-text">Bamibini</li>
+          <li class="font25 gray-text">Lun</li>
+          <li class=" font25 gray-text">Mar - Ven</li>
+          <li class=" font25 gray-text">Sab - Dom</li>
 
         </ul>
         <ul class="sec1">
-          <li class=" font25 gray-text">Adulti</li>
-          <li class=" font25 gray-text">Ragazzi</li>
-          <li class=" font25 gray-text">Bamibini</li>
+          <li class=" font25 gray-text">Chiuso</li>
+          <li class=" font25 gray-text">8.00 - 18.00</li>
+          <li class=" font25 gray-text">9.00 - 16.00</li>
 
         </ul>
       </div>

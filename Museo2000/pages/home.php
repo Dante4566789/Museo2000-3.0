@@ -39,8 +39,9 @@
     })
   </script>
   <!--1 hero section-->
-  <div class="hero_section_01">
-    <img src="../public//assets/home_04.png" id="about">
+  <div id="about"></div>
+  <div class="hero_section_01" >
+    <img src="../public//assets/home_04.png" >
     <div class="hero_text">
       <h1>Visita il Nostro Museo!</h1>
       <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
@@ -58,7 +59,7 @@
 
     <div class="hero_text_02">
       <h1>Il nostro reparto Eventi</h1>
-      <button class="hero_text_02_button_01 .p-white" onclick="redirect1()">EVENTI</button>
+      <button class="hero_text_02_button_01 p-white" onclick="redirect1()">EVENTI</button>
       <script>
     		function redirect1() {
        			window.location.href = "events.php";
@@ -96,9 +97,9 @@
 
         </ul>
         <ul class="sec1">
-          <li class=" font25 gray-text">Adulti</li>
-          <li class=" font25 gray-text">Ragazzi</li>
-          <li class=" font25 gray-text">Bamibini</li>
+          <li class=" font25 gray-text">15.00 €</li>
+          <li class=" font25 gray-text">10.00 €</li>
+          <li class=" font25 gray-text">7.50 €</li>
 
         </ul>
       </div>
@@ -106,15 +107,15 @@
       <hr class="gray-line" size=”1″ width=”300″ noshade>
       <div class="sec2">
         <ul class=" sec0 border-left">
-          <li class="font25 gray-text">Adulti</li>
-          <li class=" font25 gray-text">Ragazzi</li>
-          <li class=" font25 gray-text">Bamibini</li>
+          <li class="font25 gray-text">Lun</li>
+          <li class=" font25 gray-text">Mar - Ven</li>
+          <li class=" font25 gray-text">Sab - Dom</li>
 
         </ul>
         <ul class="sec1">
-          <li class=" font25 gray-text">Adulti</li>
-          <li class=" font25 gray-text">Ragazzi</li>
-          <li class=" font25 gray-text">Bamibini</li>
+          <li class=" font25 gray-text">Chiuso</li>
+          <li class=" font25 gray-text">8.00 - 18.00</li>
+          <li class=" font25 gray-text">9.00 - 16.00</li>
 
         </ul>
       </div>
@@ -127,7 +128,7 @@
     </div>
 
   </div>
-
+  
   <div class="hero_section_04">
     <h2>Solo a <strong>MUSEO2000</strong> vedi <strong>2000 anni</strong> di storia e arte</h2>
     <button class="p-white" onclick="redirect5()">Vieni a Trovarci!</button>
