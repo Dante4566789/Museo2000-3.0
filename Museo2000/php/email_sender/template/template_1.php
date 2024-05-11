@@ -264,7 +264,7 @@
                                                                         echo "<tr>";
                                                                         echo "<td>". $evento . "</td>";
                                                                         echo "<td>". $dataInizio . "</td>";
-                                                                     echo "<td>". $dataFine . "</td>";
+                                                                        echo "<td>". $dataFine . "</td>";
                                                                         echo "<td> x". $quantita . "</td>";
                                                                         echo "<tr>";
 
