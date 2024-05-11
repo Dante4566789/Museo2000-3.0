@@ -141,6 +141,8 @@
                                     if ($long < $data_inizio || $long > $data_fine) {
                                         $data_conferma = "no";
                                     }
+                                    $_SESSION["evento"] = $row["DescrizioneE"];
+
                                 }
                             }
                         }
@@ -193,9 +195,12 @@
                                 exit();
                             }
                             $stmt->execute();
+                            
                         }
-
-
+                        
+                        $_SESSION["DataInizio"] = $data_inizio;
+                        $_SESSION["DataFine"] = $data_fine; 
+                        $_SESSION["quantita"] = $quantita;
 
                         exit();
                     }

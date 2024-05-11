@@ -171,7 +171,7 @@
                                                         <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
                                                             <tr>
                                                                 <!-- logo -->
-                                                                <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;"><a href="#" target="_blank" style="" name="Header_LogoName_image" alias="Header_LogoName_image"><img class="m-width--100p" src="http://fpoimg.com/400x150?text=200x75" border="0" style="display:block; margin:0px auto; max-width:200px !important;" width="200" height="" alt="AltTextHere"></a>
+                                                                <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;"><a href="#" target="_blank" style="" name="Header_LogoName_image" alias="Header_LogoName_image"><img class="m-width--100p" src="../../../public/assets/template_02.png" border="0" style="display:block; margin:0px auto; max-width:180px !important;" width="200" height="" alt="AltTextHere"></a>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -189,7 +189,7 @@
 
                         <!--  START: Body Modules Container  -->
                         <tr>
-                            <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-top: 60px; padding-bottom: 70px; mso-line-height-rule: exactly;">
+                            <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-top: 20px; padding-bottom: 70px; mso-line-height-rule: exactly;">
                                 <table class="m-width--100p m-float--center" width="100%" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; margin:0px auto;">
 
                                     <!--  START: MODULE - Image (full-width)  -->
@@ -241,9 +241,40 @@
                                                                     <th>Data dell'inizio</th>
                                                                     <th>Data della fine</th>
                                                                     <th>Quantità</th>
-                                                                    <th>Tariffa</th>
                                                                 </tr>
                                                             </thead>
+                                                            <tbody>
+                                                                <?php
+                                                                include "../../server/connection.php";
+
+                                                                $stmt = $conn->prepare("SELECT * FROM Biglietto WHERE Mail = ?
+                                                                    ORDER BY IDBiglietto DESC
+                                                                    LIMIT 1;");
+
+                                                                    $stmt -> bind_param("s", $_SESSION["email"]);
+
+                                                                    $stmt->execute();
+                                                                    $result = $stmt->get_result();
+                                                                    $quantita =  $_SESSION["quantita"];
+                                                                    $evento =  $_SESSION["evento"];
+                                                                    $dataInizio = $_SESSION["DataInizio"];
+                                                                    $dataFine = $_SESSION["DataFine"];
+
+                                                                    while($row = $result->fetch_assoc()){
+                                                                        echo "<tr>";
+                                                                        echo "<td>". $evento . "</td>";
+                                                                        echo "<td>". $dataInizio . "</td>";
+                                                                        echo "<td>". $dataFine . "</td>";
+                                                                        echo "<td> x". $quantita . "</td>";
+                                                                        echo "<tr>";
+
+                                                                    }
+
+
+
+
+                                                                ?>
+                                                            </tbody>
                                                         </table>
                                                     </td>
                                                 </tr>
