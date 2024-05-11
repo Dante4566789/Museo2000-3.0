@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en" xml:lang="en">
+<html>
 
-<!--  Thank you for Downloading! FX_Codes_Basic_Modular_Template_01.07.2024 -->
+
 
 <head>
 
@@ -108,6 +108,23 @@
             .m-textAlign--center {
                 text-align: center !important;
             }
+
+            .v2 table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            .v2 th,
+            td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .v2 th {
+                background-color: #f2f2f2;
+            }
+
 
 
         }
@@ -222,10 +239,7 @@
                                                     <!-- horizontal spacing/background color -->
                                                     <td class="m-pad-lr--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
                                                         <!-- h1/paragraph/h3 -->
-                                                        <h1 class="m-textAlign--center " style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;"><?php session_start();
-                                                                                                                                                                                                                                                                                                                        $nome = $_SESSION["nome"];
-                                                                                                                                                                                                                                                                                                                        echo "Salve, ";
-                                                                                                                                                                                                                                                                                                                        echo $nome; ?></h1>
+                                                        <h1 class="m-textAlign--center " style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">{SESSIONE}</h1>
                                                         <h2 class="m-textAlign--center" style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">Acquisto Confermato!!</h2><br>
                                                         <br></br>
                                                         <p class="m-textAlign--center m-pad-t--20" style="padding: 0px; margin: 0; margin-top: 10px; font-family: Arial, sans-serif; font-size: 20px; font-weight: normal; font-weight: 400; color: #041727; mso-line-height-alt: 23px; line-height: 1.4; letter-spacing: normal; text-align: left;">Desidero esprimerti la mia più sincera gratitudine per aver scelto il nostro sito per prenotare il tuo biglietto. Apprezziamo enormemente la fiducia che hai riposto in noi per soddisfare le tue esigenze di viaggio.<br></br>
@@ -233,49 +247,42 @@
                                                             Il tuo supporto è fondamentale per noi e ci motiva a continuare a migliorare i nostri servizi per offrirti esperienze sempre più soddisfacenti. Siamo qui per garantirti un viaggio senza preoccupazioni e un'esperienza di prenotazione semplice e conveniente.<br>
 
                                                         </p>
-                                                        <p style="padding: 0px; margin: 0; margin-top: 10px; font-family: Arial, sans-serif; font-size: 25px; ;"><strong>Dettagli Prenotazione : </strong></p>
-                                                        <table>
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Nome dell'evento</th>
-                                                                    <th>Data dell'inizio</th>
-                                                                    <th>Data della fine</th>
-                                                                    <th>Quantità</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php
-                                                                include "../../server/connection.php";
+                                                        <p style="padding: 0px; margin: 0;padding-top:20px; padding-bottom: 20px; margin-top: 10px; font-family: Arial, sans-serif; font-size: 25px; ;"><strong>Dettagli Prenotazione : </strong></p>
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="padding-right  : 50px">Nome dell'evento</th>
+                                                                        <th style="padding-right  : 50px">Data</th>
+                                                                        <th style="padding-right  : 50px">Quantità</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+                                                                    include "../../server/connection.php";
 
-                                                                $stmt = $conn->prepare("SELECT * FROM Biglietto WHERE Mail = ?
+                                                                    $stmt = $conn->prepare("SELECT * FROM Biglietto WHERE Mail = ?
                                                                     ORDER BY IDBiglietto DESC
                                                                     LIMIT 1;");
 
-                                                                    $stmt -> bind_param("s", $_SESSION["email"]);
+                                                                    $stmt->bind_param("s", $_SESSION["email"]);
 
                                                                     $stmt->execute();
                                                                     $result = $stmt->get_result();
                                                                     $quantita =  $_SESSION["quantita"];
                                                                     $evento =  $_SESSION["evento"];
-                                                                    $dataInizio = $_SESSION["DataInizio"];
-                                                                    $dataFine = $_SESSION["DataFine"];
+                                                                    $data = date('d - m - Y', strtotime($_SESSION["data"]));
 
-                                                                    while($row = $result->fetch_assoc()){
-                                                                        echo "<tr>";
-                                                                        echo "<td>". $evento . "</td>";
-                                                                        echo "<td>". $dataInizio . "</td>";
-                                                                        echo "<td>". $dataFine . "</td>";
-                                                                        echo "<td> x". $quantita . "</td>";
-                                                                        echo "<tr>";
 
+                                                                    while ($row = $result->fetch_assoc()) {
+                                                                        echo "<tr>";
+                                                                        echo "<td>" . $evento . "</td>";
+                                                                        echo "<td>" . $data . "</td>";
+                                                                        echo "<td> x" . $quantita . "</td>";
+                                                                        echo "<tr>";
                                                                     }
-
-
-
-
-                                                                ?>
-                                                            </tbody>
-                                                        </table>
+                                                                    ?>
+                                                                </tbody>
+                                                            </table>
                                                     </td>
                                                 </tr>
                                             </table>

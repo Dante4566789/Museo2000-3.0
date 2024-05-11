@@ -198,10 +198,9 @@
                             
                         }
                         
-                        $_SESSION["DataInizio"] = $data_inizio;
-                        $_SESSION["DataFine"] = $data_fine; 
+                        $_SESSION["data"] = $data;
                         $_SESSION["quantita"] = $quantita;
-
+                        header("Location: end.php");
                         exit();
                     }
                 }

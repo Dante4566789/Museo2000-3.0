@@ -122,12 +122,14 @@
             $data = date("Y/m/d", strtotime($data));
             $stmt = $conn->prepare("INSERT INTO Biglietto (Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("sidsii", $email, $evento, $tariffaTotale, $data, $categoria, $servizio);
-            
+
             for ($i = 0; $i < $quantita; $i++) {
                 $stmt->execute();
             }
-
-            header("Location: ../home.php");
+            $_SESSION["evento"] = "Visita Al Museo";
+            $_SESSION["data"] = $data;
+            $_SESSION["quantita"] = $quantita;
+            header("Location: ../../php/email_sender/email_sender.php");
             exit();
         }
     }
