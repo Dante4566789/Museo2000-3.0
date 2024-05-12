@@ -7,7 +7,10 @@ $template_file = "template/template_1.php";
 
 
 $swap_var = array(
-    "{SESSIONE}" => $_SESSION["email"]
+    "{nome}" => $_SESSION["nome"],
+    "{nomeEvento}" => $_SESSION["evento"],
+    "{data}" => $_SESSION["data"],
+    "{quantita}" => $_SESSION["quantita"]
 );
 
 $to      = "palladoriccardo@gmail.com";

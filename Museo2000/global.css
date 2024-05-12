@@ -590,17 +590,16 @@ button:hover {
 }
 
 /*admin*/
-.admin {
-  margin: auto;
-  width: 70%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
+
 .admin h1 {
   font-size: 50px;
-  color: #ebe9cf;
+  color: #000;
 }
-
+.admin h2{
+  padding-top : 10px;
+  font-size : 20px;
+  font-weight: 300;
+}
 
 /*events*/
 .v1{
@@ -796,7 +795,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color : #ebe9cf;
 }
 
-
+.admin_container{
+  display:flex,;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.section_admin{
+  padding-top: 50px;
+  padding-bottom: 50px ;
+  display: flex;
+  flex-direction: column;
+  gap : 10px;  
+}
 
 
 /*FOOTER*/

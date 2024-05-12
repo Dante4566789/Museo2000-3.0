@@ -239,7 +239,7 @@
                                                     <!-- horizontal spacing/background color -->
                                                     <td class="m-pad-lr--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
                                                         <!-- h1/paragraph/h3 -->
-                                                        <h1 class="m-textAlign--center " style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">{SESSIONE}</h1>
+                                                        <h1 class="m-textAlign--center " style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">{nome}</h1>
                                                         <h2 class="m-textAlign--center" style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">Acquisto Confermato!!</h2><br>
                                                         <br></br>
                                                         <p class="m-textAlign--center m-pad-t--20" style="padding: 0px; margin: 0; margin-top: 10px; font-family: Arial, sans-serif; font-size: 20px; font-weight: normal; font-weight: 400; color: #041727; mso-line-height-alt: 23px; line-height: 1.4; letter-spacing: normal; text-align: left;">Desidero esprimerti la mia più sincera gratitudine per aver scelto il nostro sito per prenotare il tuo biglietto. Apprezziamo enormemente la fiducia che hai riposto in noi per soddisfare le tue esigenze di viaggio.<br></br>
@@ -248,41 +248,23 @@
 
                                                         </p>
                                                         <p style="padding: 0px; margin: 0;padding-top:20px; padding-bottom: 20px; margin-top: 10px; font-family: Arial, sans-serif; font-size: 25px; ;"><strong>Dettagli Prenotazione : </strong></p>
-                                                            <table>
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th style="padding-right  : 50px">Nome dell'evento</th>
-                                                                        <th style="padding-right  : 50px">Data</th>
-                                                                        <th style="padding-right  : 50px">Quantità</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php
-                                                                    include "../../server/connection.php";
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="padding-right  : 50px">Nome dell'evento</th>
+                                                                    <th style="padding-right  : 50px">Data</th>
+                                                                    <th style="padding-right  : 50px">Quantità</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th style="padding-right :50px">{nomeEvento}</th>
+                                                                    <th style="padding-right :50px">{data}</th>
+                                                                    <th style="padding-right :50px">{quantita}</th>
+                                                                </tr>
 
-                                                                    $stmt = $conn->prepare("SELECT * FROM Biglietto WHERE Mail = ?
-                                                                    ORDER BY IDBiglietto DESC
-                                                                    LIMIT 1;");
-
-                                                                    $stmt->bind_param("s", $_SESSION["email"]);
-
-                                                                    $stmt->execute();
-                                                                    $result = $stmt->get_result();
-                                                                    $quantita =  $_SESSION["quantita"];
-                                                                    $evento =  $_SESSION["evento"];
-                                                                    $data = date('d - m - Y', strtotime($_SESSION["data"]));
-
-
-                                                                    while ($row = $result->fetch_assoc()) {
-                                                                        echo "<tr>";
-                                                                        echo "<td>" . $evento . "</td>";
-                                                                        echo "<td>" . $data . "</td>";
-                                                                        echo "<td> x" . $quantita . "</td>";
-                                                                        echo "<tr>";
-                                                                    }
-                                                                    ?>
-                                                                </tbody>
-                                                            </table>
+                                                            </tbody>
+                                                        </table>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -301,99 +283,98 @@
                                                         <table class="m-float--center" width="" align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0px auto;">
                                                             <tr>
                                                                 <!-- button -->
-                                                                <td class="m-text--button" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-top: 12px; padding-right: 22px; padding-bottom: 12px; padding-left: 22px; mso-line-height-alt: 14px; mso-line-height-rule: exactly; background: #F3E600; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600; color: #1a1a1a; line-height: 1.0; letter-spacing: normal; border: #1A1A1A solid 2px; border-radius: 0PX;"><a href="#" target="_blank" style="text-decoration: none; color: #1a1a1a;" name="ButtonName_button" alias="ButtonName_button">CALL TO ACTION</a>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
                                     </tr>
-                                    <!--  END: MODULE - Button (solid/ghost)  -->
-
                                 </table>
                             </td>
                         </tr>
-                        <!--  END: Body Modules Container  -->
-
-                        <!--  START: Footer Modules Container  -->
-                        <tr>
-                            <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
-                                <table class="m-width--100p m-float--center" width="100%" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%px; margin:0px auto;">
-
-                                    <!--  START: MODULE - Footer (logo/text)  -->
-                                    <tr>
-                                        <!-- vertical spacing from prior module -->
-                                        <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
-                                            <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
-                                                <tr>
-                                                    <!-- horizontal spacing/background color -->
-                                                    <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-top: 30px; padding-right: 30px; padding-left: 30px; mso-line-height-rule: exactly; border-top: 2px solid #CCCCCC;">
-                                                        <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
-                                                            <!-- logo -->
-                                                            <tr>
-                                                                <td class="m-pad-t--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;"><a href="#" target="_blank" style="" name="Footer_LogoName_image" alias="Footer_LogoName_image"><img class="m-width--100p" src="http://fpoimg.com/300x100?text=150x50" border="0" style="display:block; margin:0px auto; max-width:150px !important;" width="150" height="" alt="AltTextHere"></a>
-                                                                </td>
-                                                            </tr>
-                                                            <!-- text -->
-                                                            <tr>
-                                                                <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 20px 0px; padding-top: 20px; mso-line-height-rule: exactly;">
-                                                                    <p class="m-textAlign--center" style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; font-weight: 400; color: #041727; mso-line-height-alt: 20px; line-height: 1.4; letter-spacing: normal; text-align: center;">123 Corpo Plaza, Night City, State 12345</p>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <!--  END: MODULE - Footer (logo/text)  -->
-
-
-
-
-
-
-                                    <!--  START: MODULE - Footer (legal stuff)  -->
-                                    <tr>
-                                        <!-- vertical spacing from prior module -->
-                                        <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
-                                            <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
-                                                <tr>
-                                                    <!-- horizontal spacing/background color -->
-                                                    <td class="m-pad-lr--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-left: 30px; padding-right: 30px; mso-line-height-rule: exactly;">
-                                                        <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
-                                                            <!-- text -->
-                                                            <tr>
-                                                                <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
-
-
-
-
-
-                                                                    <p class="m-text--p" style="padding: 0px; padding-bottom: 20px; margin: 0; margin-top: 10px; font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; font-weight: 400; color: #616D77; mso-line-height-alt: 16px; line-height: 1.4; letter-spacing: normal; text-align: center;">&copy;&nbsp;2077. All wrongs reserved.</p>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <!--  END: MODULE - Footer (legal)  -->
-
-
-                                </table>
-                            </td>
-                        </tr>
-                        <!--  END: Footer Modules Container  -->
+                        <!--  END: MODULE - Button (solid/ghost)  -->
 
                     </table>
-                    <!--  END: Email Container - 600px  -->
-
                 </td>
             </tr>
+            <!--  END: Body Modules Container  -->
+
+            <!--  START: Footer Modules Container  -->
+            <tr>
+                <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
+                    <table class="m-width--100p m-float--center" width="100%" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%px; margin:0px auto;">
+
+                        <!--  START: MODULE - Footer (logo/text)  -->
+                        <tr>
+                            <!-- vertical spacing from prior module -->
+                            <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
+                                <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
+                                    <tr>
+                                        <!-- horizontal spacing/background color -->
+                                        <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-top: 30px; padding-right: 30px; padding-left: 30px; mso-line-height-rule: exactly; border-top: 2px solid #CCCCCC;">
+                                            <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
+                                                <!-- logo -->
+                                                <tr>
+                                                    <td class="m-pad-t--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;"><a href="#" target="_blank" style="" name="Footer_LogoName_image" alias="Footer_LogoName_image"><img class="m-width--100p" src="http://fpoimg.com/300x100?text=150x50" border="0" style="display:block; margin:0px auto; max-width:150px !important;" width="150" height="" alt="AltTextHere"></a>
+                                                    </td>
+                                                </tr>
+                                                <!-- text -->
+                                                <tr>
+                                                    <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 20px 0px; padding-top: 20px; mso-line-height-rule: exactly;">
+                                                        <p class="m-textAlign--center" style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; font-weight: 400; color: #041727; mso-line-height-alt: 20px; line-height: 1.4; letter-spacing: normal; text-align: center;">123 Corpo Plaza, Night City, State 12345</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!--  END: MODULE - Footer (logo/text)  -->
+
+
+
+
+
+
+                        <!--  START: MODULE - Footer (legal stuff)  -->
+                        <tr>
+                            <!-- vertical spacing from prior module -->
+                            <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
+                                <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
+                                    <tr>
+                                        <!-- horizontal spacing/background color -->
+                                        <td class="m-pad-lr--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-left: 30px; padding-right: 30px; mso-line-height-rule: exactly;">
+                                            <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
+                                                <!-- text -->
+                                                <tr>
+                                                    <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
+
+
+
+
+
+                                                        <p class="m-text--p" style="padding: 0px; padding-bottom: 20px; margin: 0; margin-top: 10px; font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; font-weight: 400; color: #616D77; mso-line-height-alt: 16px; line-height: 1.4; letter-spacing: normal; text-align: center;">&copy;&nbsp;2077. All wrongs reserved.</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!--  END: MODULE - Footer (legal)  -->
+
+
+                    </table>
+                </td>
+            </tr>
+            <!--  END: Footer Modules Container  -->
+
+        </table>
+        <!--  END: Email Container - 600px  -->
+
+        </td>
+        </tr>
         </table>
         <!--  END: Email Wrapper  -->
 

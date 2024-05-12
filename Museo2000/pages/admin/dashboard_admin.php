@@ -5,28 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Museo2000</title>
-    <link rel="stylesheet" href="../../global.css?">
+    <link rel="stylesheet" href="../../global.css?v=34  ">
     <link rel="icon" type="image/x-icon" href="../../public/favicon.ico">
 </head>
 
 <body>
 
     <header>
-        <a href="../../../Museo2000/pages/home.php" class="logo" >Museo2000</a>
-            <ul>
+        <a href="../../../Museo2000/pages/home.php" class="logo">Museo2000</a>
+        <ul>
             <li><a href="../../pages/visits.php">Visitaci</a></li>
-                <li><a href="../../pages/home.php#about">About</a></li>
-                <li><a href="../../pages/events.php">Eventi</a></li>
-                <li><a href="../../pages/login.php">Login</a></li>
-               
-            </ul> 
+            <li><a href="../../pages/home.php#about">About</a></li>
+            <li><a href="../../pages/events.php">Eventi</a></li>
+            <li><a href="../../pages/login.php">Login</a></li>
+
+        </ul>
 
     </header>
-    
+    <?php
+    session_start();
+
+    include("../../php/server/connection.php");
+
+
+    if ($_SESSION["tipo"] != "A") {
+        header("Location: ../login.php?admin=false");
+    }
+
+    //add aggiungi evento 
+    ?>
+
+
+
+
     <section class="banner_home home_01 p5">
-        <div class="hero_box">
-            <h1 class="hero_heading">Pagina admin</h1>
-        </div>
+        <div class="hero_box_text">
+            <h1>Pagina Admin</h1>
     </section>
     <script type="text/javascript">
         window.addEventListener("scroll", function() {
@@ -42,7 +56,7 @@
             session_start();
 
 
-            echo "<h1 class='admin'>";
+            echo "<h1>";
             echo "Salve," . $_SESSION['nome'];
             echo "</h1>"
             ?>
@@ -51,7 +65,7 @@
 
         </div>
 
-        <div class="remove">
+        <div class="remove section_admin">
             <h1>Elimina un evento</h1>
             <form class="remove" method="post">
                 <label>Nome dell'evento : </label>
@@ -110,7 +124,7 @@
 
         </div>
 
-        <div class="update">
+        <div class="update section_admin">
             <h1> Aggiungi un'Evento </h1>
             <form class="aggiungi" method="post">
 
@@ -147,16 +161,16 @@
                     echo "Hai aggiunto l'evento";
                 }
             }
-            
 
-            if (isset($_POST["update"])){
+
+            if (isset($_POST["update"])) {
                 updateEvents($conn);
             }
 
             ?>
         </div>
 
-        <div class="modPrezzi">
+        <div class="modPrezzi section_admin">
             <h1>Modifica i prezzi di un'evento</h1>
             <form method="POST">
                 <label>Scegli l'evento da modificare</label>
@@ -213,26 +227,60 @@
         </div>
 
         <!--modifica evento-->
-        <div class="modEvents">
+        <div class="modEvents section_admin">
             <h1>Modifica l'evento</h1>
             <form method="POST">
                 <label>Nome evento</label>
-                <input type="text" name="nomeEvento" required></input>
-                <label>Descrizione Evento</label>
-                <input type="text" name="descrizioneEvento"></input>
-                <label>
+                <input type="text" name="evento" required></input>
                 <label>Prezzo dell'evento</label>
-                <input type="number" name="prezzo"></input>
+                <input type="number" name="Tariffa"></input>
                 <label>Data dell'inizio dell'evento</label>
-                <input type="date" name="dataInizio"></input>
+                <input type="date" name="DataInizio"></input>
                 <label>Data dell'inizio dell'evento</label>
-                <input type="date" name="dataFine"></input>
+                <input type="date" name="DataFine"></input>
                 <button type="submit" name="modEvento">Modifica l'evento</button>
             </form>
 
-            <?php 
-                include("../../php/server/connection.php");
-            ?> 
+            <?php
+            include("../../php/server/connection.php");
+            function modificaEvento($conn)
+            {
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $evento = htmlentities($_POST["evento"]);
+
+                    $update_query = "UPDATE Evento SET ";
+                    $update_values = [];
+
+                    // Loop attraverso gli attributi del libro e verifica se sono stati forniti nuovi valori
+                    $attributi = array('TipoEvento', 'DescrizioneE', 'Tariffa', 'DataInizio', 'DataFine');
+                    foreach ($attributi as $attributo) {
+                        if (isset($_POST[$attributo]) && !empty($_POST[$attributo])) {
+                            $value = $conn->real_escape_string($_POST[$attributo]);
+                            $update_values[] = "$attributo = '$value'";
+                        }
+                    }
+
+                    // Aggiungi i valori alla query di aggiornamento
+                    $update_query .= implode(", ", $update_values);
+                    $update_query .= " WHERE DescrizioneE = ?";
+                    $stmt = $conn->prepare($update_query);
+                    $stmt->bind_param("s", $evento);
+                    $stmt->execute();
+
+                    $rows_affected = $conn->affected_rows;
+                    if ($rows_affected == 0) {
+                        echo "Non è stato possibile modificare l'evento. Riprovare";
+                    } else {
+                        echo "Hai modificato l'evento";
+                    }
+                }
+            }
+
+            if (isset($_POST["modEvento"])) {
+                modificaEvento($conn);
+            }
+
+            ?>
         </div>
 
 
@@ -246,22 +294,3 @@
 </body>
 
 </html>
-
-
-<?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-include("../../php/server/connection.php");
-
-
-if ($_SESSION["tipo"] != "A") {
-    header("Location: ../login.php?admin=false");
-}
-
-//add aggiungi evento
-
-
-
-?>
