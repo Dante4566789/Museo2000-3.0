@@ -10,10 +10,11 @@ $swap_var = array(
     "{nome}" => $_SESSION["nome"],
     "{nomeEvento}" => $_SESSION["evento"],
     "{data}" => $_SESSION["data"],
-    "{quantita}" => $_SESSION["quantita"]
+    "{quantita}" => $_SESSION["quantita"],
+    "{id}" => $_SESSION["idBiglietto"]
 );
 
-$to      = "palladoriccardo@gmail.com";
+$to      = $_SESSION["email"];
 $subject = 'Prenotazione del biglietto';
 $message = file_get_contents($template_file);
 $headers  = "From: Museo200"."\r\n";

@@ -197,6 +197,21 @@
                             $stmt->execute();
                             
                         }
+
+                        $stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");
+                        $stmt1->execute();
+                        $result1 = $stmt1->get_result();
+                        $temp = 0;
+                        while($row1 = $result1->fetch_assoc() && $temp==0) {
+                            $temp = $temp + 1;
+                            if($row1["Mail"] == $_SESSION["email"]){
+                                $_SESSION["id"] = $row1["IDBiglietto"];
+                               
+                            }
+
+                        }
+
+
                         
                         $_SESSION["data"] = $data;
                         $_SESSION["quantita"] = $quantita;

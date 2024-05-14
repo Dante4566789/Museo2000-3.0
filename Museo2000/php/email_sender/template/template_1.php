@@ -239,7 +239,7 @@
                                                     <!-- horizontal spacing/background color -->
                                                     <td class="m-pad-lr--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;">
                                                         <!-- h1/paragraph/h3 -->
-                                                        <h1 class="m-textAlign--center " style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">{nome}</h1>
+                                                        <h1 class="m-textAlign--center " style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">Salve, {nome}</h1>
                                                         <h2 class="m-textAlign--center" style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; font-weight: 700; color: #1A1A1A; mso-line-height-alt: 36px; line-height: 1.0; letter-spacing: normal; text-align: left;">Acquisto Confermato!!</h2><br>
                                                         <br></br>
                                                         <p class="m-textAlign--center m-pad-t--20" style="padding: 0px; margin: 0; margin-top: 10px; font-family: Arial, sans-serif; font-size: 20px; font-weight: normal; font-weight: 400; color: #041727; mso-line-height-alt: 23px; line-height: 1.4; letter-spacing: normal; text-align: left;">Desidero esprimerti la mia più sincera gratitudine per aver scelto il nostro sito per prenotare il tuo biglietto. Apprezziamo enormemente la fiducia che hai riposto in noi per soddisfare le tue esigenze di viaggio.<br></br>
@@ -251,6 +251,7 @@
                                                         <table>
                                                             <thead>
                                                                 <tr>
+                                                                    <th style="padding-right  : 50px">Biglietto</th>
                                                                     <th style="padding-right  : 50px">Nome dell'evento</th>
                                                                     <th style="padding-right  : 50px">Data</th>
                                                                     <th style="padding-right  : 50px">Quantità</th>
@@ -258,6 +259,7 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
+                                                                    <th style="padding-right :50px">{id}</th>
                                                                     <th style="padding-right :50px">{nomeEvento}</th>
                                                                     <th style="padding-right :50px">{data}</th>
                                                                     <th style="padding-right :50px">{quantita}</th>

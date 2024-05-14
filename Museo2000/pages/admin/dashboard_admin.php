@@ -283,6 +283,24 @@
             ?>
         </div>
 
+        <div class="logout section_admin">
+            <h1>Logout</h1>
+            <form method="POST">
+                <button type="submit" name="Logout">Esci</button>
+            </form>
+
+            <?php
+            
+            if (isset($_POST["Logout"])) {
+                header("Location: ../../../Museo2000/pages/home.php");
+            }
+            ?>
+
+
+        </div>
+
+
+
 
 
 
