@@ -11,13 +11,13 @@ $swap_var = array(
     "{nomeEvento}" => $_SESSION["evento"],
     "{data}" => $_SESSION["data"],
     "{quantita}" => $_SESSION["quantita"],
-    "{id}" => $_SESSION["idBiglietto"]
+    "{id}" => $_SESSION["id"]
 );
 
 $to      = $_SESSION["email"];
 $subject = 'Prenotazione del biglietto';
 $message = file_get_contents($template_file);
-$headers  = "From: Museo200"."\r\n";
+$headers  = "From: Museo2000"."\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 $headers .=  'X-Mailer: PHP/' . phpversion()."\r\n";

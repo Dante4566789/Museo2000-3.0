@@ -24,7 +24,7 @@
         <button class="p-brown" onclick="redirect()">Prenota Visita</button>
         <script>
     		function redirect() {
-        		window.location.href = "visits.php";
+        		window.location.href = "booking/visits.php";
     		}
 		</script>
     </section>
@@ -71,7 +71,7 @@
 
         </ul>
         <ul class="sec1">
-          <li class=" font25 gray-text">Chiuso</li>
+          <li class=" font25 gray-text">10.00 - 19.00</li>
           <li class=" font25 gray-text">8.00 - 18.00</li>
           <li class=" font25 gray-text">9.00 - 16.00</li>
 

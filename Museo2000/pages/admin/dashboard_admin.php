@@ -291,10 +291,13 @@
 
             <?php
             
-            if (isset($_POST["Logout"])) {
-                header("Location: ../../../Museo2000/pages/home.php");
-            }
+                if (isset($_POST["Logout"])) {
+                    header("Location: destroy.php");
+                }
+
+            
             ?>
+         
 
 
         </div>

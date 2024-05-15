@@ -30,6 +30,8 @@ $_SESSION['email'] = $email;
 $_SESSION['password'] = $password;
 
 
+setcookie('mail', $email, time() + 120);
+
 
 
 //verifichiamo siano giusti rispetto ai dati del database
@@ -54,6 +56,7 @@ function check($conn, $email, $password){
                 }else{
                     
                     $_SESSION['nome'] = $row['nome'];
+                    $_SESSION["tipo"] = 'U';
                     header('Location: ../../pages/home.php?msg=success');
                     exit();
                 }

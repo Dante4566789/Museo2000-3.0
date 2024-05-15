@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container_ev ev_back">
+    <div class="container_ev ev_back Login">
         <header>
             <a href="../../../Museo2000/pages/home.php" class="logo">Museo2000</a>
             <ul>
@@ -40,9 +40,6 @@
                     <!-- <label for="email">Email:</label><br>
         <input type="Mail" id="Mail" name="Mail" required><br>
         <br>-->
-                    <label for="data">Data:</label><br>
-                    <input type="date" id="data" name="data" required>
-                    <br>
                     <label for="evento">Evento:</label><br>
                     <select id="evento" name="evento" required>
                         <?php
@@ -79,7 +76,9 @@
                             echo "eventi non trovati";
                         } ?>
 
-                    </select>
+                    </select><br>
+                    <label for="data">Data:</label><br>
+                    <input type="date" id="data" name="data" min='' required>
                     <br>
                     <label for="quantita">Quantità:</label><br>
                     <select id="quantita" name="quantita" required>
@@ -142,7 +141,6 @@
                                         $data_conferma = "no";
                                     }
                                     $_SESSION["evento"] = $row["DescrizioneE"];
-
                                 }
                             }
                         }
@@ -188,34 +186,36 @@
 
                         $stmt = $conn->prepare("INSERT INTO Biglietto (Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio) VALUES (?, ?, ?, ?, ?, ?)");
                         $stmt->bind_param("sidsii", $email, $evento, $tariffaTotale, $data, $categoria, $servizio);
+                        date_default_timezone_set('Italy/Rome');
+                        $date = date('m/d/Y h:i:s a', time());
 
+                        $startdate = strtotime($date);
                         for ($i = 0; $i < $quantita; $i++) {
-                            if ($data_conferma == "no") {
+                            if ($data_conferma == "no" || $startdate > $long) {
                                 echo "<script>alert('Attenzione : La data non è valida')</script>";
                                 exit();
                             }
                             $stmt->execute();
-                            
                         }
 
                         $stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");
                         $stmt1->execute();
                         $result1 = $stmt1->get_result();
                         $temp = 0;
-                        while($row1 = $result1->fetch_assoc() && $temp==0) {
+                        while ($row1 = $result1->fetch_assoc() && $temp == 0) {
                             $temp = $temp + 1;
-                            if($row1["Mail"] == $_SESSION["email"]){
+                            if ($row1["Mail"] == $_SESSION["email"]) {
                                 $_SESSION["id"] = $row1["IDBiglietto"];
-                               
                             }
-
                         }
 
 
-                        
+
+
+
                         $_SESSION["data"] = $data;
                         $_SESSION["quantita"] = $quantita;
-                        header("Location: end.php");
+                        header("Location: ../../php/email_sender/email_sender.php");
                         exit();
                     }
                 }

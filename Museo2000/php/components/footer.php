@@ -30,12 +30,11 @@
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
-  	 			<h4>Tendenze Eventi</h4>
+  	 			<h4>Eventi</h4>
   	 			<ul>
-  	 				<li><a href="#">watch</a></li>
-  	 				<li><a href="#">bag</a></li>
-  	 				<li><a href="#">shoes</a></li>
-  	 				<li><a href="#">dress</a></li>
+  	 				<li><a href="../pages/events.php#Basquiat">Basquiat</a></li>
+  	 				<li><a href="../pages/events.php#Van_gogh">Van gogh</a></li>
+  	 				<li><a href="../pages/events.php#Frida">Frida Khali</a></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">

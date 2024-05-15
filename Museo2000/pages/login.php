@@ -18,7 +18,7 @@
       <form action="../php/server/handler.php"  method="POST">
         <h1>Login</h1>
         <div class="input-box">
-          <input type="text" name="email" placeholder="Email" required>
+          <input type="text" name="email" value="<?php echo isset($_COOKIE['mail']) ? $_COOKIE['mail'] : "";  ?>"placeholder="Email" required>
           <i class='bx bxs-user'></i>
         </div>
         <div class="input-box">

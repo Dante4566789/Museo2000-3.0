@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo2000</title>
     <link rel="stylesheet" href="../../globall.css?v=1">
+    <script src="https://kit.fontawesome.com/5ebde279c1.js" crossorigin="anonymous"></script>
     
 </head>
 
@@ -16,7 +17,7 @@
             <li><a href="../pages/visits.php">Visitaci</a></li>
                 <li><a href="../pages/home.php#about">About</a></li>
                 <li><a href="../pages/events.php">Eventi</a></li>
-                <li><a href="../pages/login.php">Login</a></li>
+                <li><img style="width :30px" src="../public/assets/login_20.png" onclick="redirectone()"></img></li>
                
             </ul> 
 
