@@ -89,45 +89,63 @@
             $quantita = $_POST['quantita'];
             $categoria = $_POST['categoria'];
             $servizio = $_POST['servizio'];
-            $evento = 1;
+            $long = strtotime($data);
+            $evento = "Visita_museo";
 
-            $tariffaTotale = $quantita * 15;
-            if ($categoria === 'bambino') {
-                $tariffaTotale *= 0.50; // Prezzo per bambino
-                $categoria = 1;
-            } elseif ($categoria === 'studente') {
-                $tariffaTotale *= 0.80; // Prezzo per studente
-                $categoria = 2;
-            } elseif ($categoria === 'pubblica istruzione') {
-                $tariffaTotale *= 0.75; // Prezzo per pubblica istruzione
-                $categoria = 3;
-            } elseif ($categoria === 'anziani') {
-                $tariffaTotale *= 0.70; // Prezzo per anziani
-                $categoria = 4;
-            } elseif ($categoria === 'disabili') {
-                $tariffaTotale *= 0.65; // Prezzo per disabili
-                $categoria = 5;
-            }
-            if ($servizio === 'audio') {
-                $tariffaTotale += 10 * $quantita; // Prezzo per audioguida
-                $servizio = 1;
-            } elseif ($servizio === 'guida') {
-                $tariffaTotale += 12 * $quantita; // Prezzo per guida
-                $servizio = 2;
-            } elseif ($servizio === 'mappa') {
-                $tariffaTotale += 1 * $quantita; // Prezzo per mappa
-                $servizio = 3;
+            //dettagli visita
+            $sql = "SELECT IDEvento, DescrizioneE, Tariffa FROM Evento";
+            $result = $conn->query($sql);
+            while($row = $result->fetch_assoc()){
+                if($row["DescrizioneE"] == $evento){
+                    $tariffa = $row["Tariffa"];
+                
+                }
             }
 
-            $data = date("Y/m/d", strtotime($data));
+
+
+            //dettagli prezzo per categoria
+            $sql_category = "SELECT Descrizione, ScontoCategoria FROM Visitatori";
+            $result_category = $conn->query($sql_category);
+            while($row_category = $result_category->fetch_assoc()){
+                if($row_category["Descrizione"] == $categoria){
+                    $tariffa = $tariffa - (($tariffa*$row_category["ScontoCategoria"])/100);
+                }
+            }
+
+            //dettagli prezzo per servizio
+            $sql_service = "SELECT DescrizioneS, PrezzoAccessorio FROM Servizio";
+            $result_service = $conn->query($sql_service);
+            while($row_service = $result_service->fetch_assoc()){
+                if($row_service["DescrizioneS"] == $servizio){
+                    $tariffa = $tariffa + $row_service["PrezzoAccessorio"]; 
+                }
+            }
+
+            //inserimento 
             $stmt = $conn->prepare("INSERT INTO Biglietto (Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sidsii", $email, $evento, $tariffaTotale, $data, $categoria, $servizio);
-
-            for ($i = 0; $i < $quantita; $i++) {
-                $stmt->execute();
+            $stmt->bind_param("sidsii", $email, $evento, $tariffa, $data, $categoria, $servizio);
+            //controllo biglietto
+            date_default_timezone_set('Italy/Rome');
+            $date = date('m/d/Y h:i:s a', time());
+            $startdate = strtotime($date);
+            $long = strtotime($data);
+            if($startdate > $long){
+                echo "<script>alert('Attenzione : La data non è valida')</script>";
+                exit();
             }
 
-            $stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");
+
+
+        
+
+
+
+
+
+            
+
+            /*$stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");
             $stmt1->execute();
             $result1 = $stmt1->get_result();
             $temp = 0;
@@ -136,7 +154,7 @@
                 if ($row1["Mail"] == $_SESSION["email"]) {
                     $_SESSION["id"] = $row1["IDBiglietto"];
                 }
-            }
+            }*/
 
             $_SESSION["evento"] = "Visita Al Museo";
             $_SESSION["data"] = $data;

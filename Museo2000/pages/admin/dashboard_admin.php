@@ -330,9 +330,9 @@
                 $result = $stmt->get_result();
                 $row1 = $result->fetch_assoc();
                 $numBiglietti = $row1["numero"];
-                if(isset($numBiglietti) && $numBiglietti > 0) {
+                if (isset($numBiglietti) && $numBiglietti > 0) {
                     echo "<p style='font-size:25px;'><strong>" . $numBiglietti . " Biglietti venduti.</strong></p>";
-                }else{
+                } else {
                     echo "<p>Non è stato possibile trovare l'evento</p>";
                 }
             }
@@ -347,7 +347,7 @@
 
         </div>
 
-        <div class="section_admin TotalEarn" id="earn">  
+        <div class="section_admin TotalEarn" id="earn">
 
             <h1>Guadagno totale di un'evento</h1>
             <form method="POST" action="/Museo2000/pages/admin/dashboard_admin.php#earn">
@@ -388,9 +388,9 @@
                 $result = $stmt->get_result();
                 $row1 = $result->fetch_assoc();
                 $prezzo = $row1["prezzo"];
-                if(isset($prezzo) && $prezzo != 0) {
+                if (isset($prezzo) && $prezzo != 0) {
                     echo "<p style='font-size:25px'><strong>" . $prezzo . " €.</strong></p>";
-                }else{
+                } else {
                     echo "<p>Non è stato possibile vedere il prezzo di questo evento</p>";
                 }
             }
@@ -403,6 +403,65 @@
             ?>
 
         </div>
+
+
+        <div class="section_admin">
+            <form method="POST">
+                <label>Inserire Anno</label>
+                <input type="number" name="anno"></input>
+                <button type="submit" name="annox">Cerca</button>
+            </form>
+
+            <?php
+
+            include ("../../php/server/connection.php");
+            function cercaAnno($conn)
+            {
+
+
+
+                $anno = $_POST["anno"];
+
+                $sql = "SELECT DescrizioneE , DataInizio , DataFine FROM Evento WHERE DataInizio between ? and ? AND DataFine between ? and ?";
+                $stmt = $conn->prepare($sql);
+                //date 
+                $start_dataInizio = $anno . "-01-01";
+                $end_dataInizio = $anno . "-12-31";
+                $start_dataFine = $anno . "-01-01";
+                $end_dataFine = $anno . "-12-31";
+                $stmt->bind_param("ssss", $start_dataInizio, $end_dataInizio, $start_dataFine, $end_dataFine);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                echo "<table style='border-spacing: 5px;'>";
+                echo "<thead>";
+                echo "<tr>";
+                echo "<th>Evento</td>";
+                echo "<th>Data Inizio</td>";
+                echo "<th>Data Fine</td>";
+                echo "</tr>";
+                echo "<thead>";
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["DescrizioneE"] . "</td>";
+                        echo "<td>" . $row["DataInizio"] . "</td>";
+                        echo "<td>" . $row["DataFine"] . "</td>";
+                        echo "</tr>";
+
+                    }
+                }
+                echo "<table>";
+            }
+
+            if (isset($_POST["annox"])) {
+                cercaAnno($conn);
+            }
+
+            ?>
+
+        </div>
+
 
 
         <div class="logout section_admin">

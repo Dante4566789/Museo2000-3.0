@@ -54,7 +54,7 @@
     </div>
 
     <div style="padding-bottom : 50px; padding-left:50px;
-    padding-right : 50px;"class="acquisti">
+    padding-right : 50px;" class="acquisti">
         <h1>Biglietti acquistati</h1>
         <div class="v2_column acquisti_column">
             <table>
@@ -72,25 +72,52 @@
                     session_start();
 
 
-                
-
-
-                    $sql = "SELECT IDBiglietto,Mail FROM Biglietto";
-                    $result = mysqli_query($conn, $sql);
 
 
 
+                    $sql = "SELECT IDBiglietto,Mail,Evento,TariffaTotale,DataValidità,Categoria,Servizio,Validita FROM Biglietto WHERE Mail = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("s", $_SESSION["email"]);
 
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $data = "";
+                    $evento = "";
                     while ($row = $result->fetch_assoc()) {
-                        if($row["Mail"] == $_SESSION["email"]){
-                            if($data == $_SESSION["data"]){exit();}
-                            echo "<tr>";
-                            echo "<td>".$_SESSION["evento"]."</td>";
-                            echo "<td>".$_SESSION["data"]."</td>";
-                            echo "<td>".$_SESSION["quantita"]."</td>";
-                            echo "</tr>";
-                            $data = $_SESSION["data"];
+                        // funzione quantita
+                        $stmt1 = $conn->prepare("SELECT COUNT(*) as count,Evento FROM Biglietto WHERE Mail = ? AND Evento = ? AND DataValidità = ? GROUP BY Mail,Evento,DataValidità;");
+                            $stmt1->bind_param("sis", $_SESSION["email"], $row["Evento"],$row["DataValidità"]);
+                            $stmt1->execute();
+                            $result1 = $stmt1->get_result();
+                            $result_row = $result1->fetch_assoc();
+                            $quantita = $result_row["count"];
+                        
+                        //funzione nome evento 
+                        $sql2 = "SELECT DescrizioneE, IDEvento FROM Evento" ;
+                        $result2 = $conn->query($sql2);
+                        while($row2 = $result2->fetch_assoc()){
+                            if($row2["IDEvento"] == $row["Evento"]){
+                                $eventoName = $row2["DescrizioneE"];
+                            }
                         }
+
+                        if ($data != $row["DataValidità"]) {
+                                echo "<tr>";
+                                echo "<td>" . $eventoName. "</td>";
+                                echo "<td>" . $row["DataValidità"] . "</td>";
+                                echo "<td>" . $quantita . "</td>";
+                                echo "</tr>";   
+                            
+                        } else if ($evento != $row["Evento"]) {
+                            echo "<tr>";
+                            echo "<td>" . $eventoName. "</td>";
+                            echo "<td>" . $row["DataValidità"] . "</td>";
+                            echo "<td>" . $quantita . "</td>";
+                            echo "</tr>";
+                        }
+                        $data = $row["DataValidità"];
+                        $evento = $row["Evento"];
+
                     }
 
 

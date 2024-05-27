@@ -26,7 +26,7 @@
 
         </header>
         <script type="text/javascript">
-            window.addEventListener("scroll", function() {
+            window.addEventListener("scroll", function () {
                 var header = document.querySelector("header");
                 header.classList.toggle("sticky", window.scrollY > 0);
             })
@@ -43,7 +43,7 @@
                     <label for="evento">Evento:</label><br>
                     <select id="evento" name="evento" required>
                         <?php
-                        include("../../php/server/connection.php");
+                        include ("../../php/server/connection.php");
                         $sql = "SELECT DescrizioneE FROM Evento";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
@@ -129,12 +129,13 @@
                         $long = strtotime($data);
                         $evento = $_POST['evento'];
 
-                        $sql = "SELECT IDEvento, DescrizioneE, DataInizio, DataFine FROM Evento";
+                        $sql = "SELECT IDEvento, DescrizioneE, DataInizio, DataFine, Tariffa FROM Evento";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 if ($evento == $row["DescrizioneE"]) {
                                     $evento = $row["IDEvento"];
+                                    $tariffa = $row["Tariffa"];
                                     $data_inizio = strtotime($row["DataInizio"]);
                                     $data_fine = strtotime($row["DataFine"]);
                                     if ($long < $data_inizio || $long > $data_fine) {
@@ -146,32 +147,21 @@
                         }
 
 
-                        $tariffaTotale = $quantita * 15;
-                        if ($categoria === 'bambino') {
-                            $tariffaTotale *= 0.50; // Prezzo per bambino
-                            $categoria = 1;
-                        } elseif ($categoria === 'studente') {
-                            $tariffaTotale *= 0.80; // Prezzo per studente
-                            $categoria = 2;
-                        } elseif ($categoria === 'pubblica istruzione') {
-                            $tariffaTotale *= 0.75; // Prezzo per pubblica istruzione
-                            $categoria = 3;
-                        } elseif ($categoria === 'anziani') {
-                            $tariffaTotale *= 0.70; // Prezzo per anziani
-                            $categoria = 4;
-                        } elseif ($categoria === 'disabili') {
-                            $tariffaTotale *= 0.65; // Prezzo per disabili
-                            $categoria = 5;
+                        $sql_category = "SELECT Descrizione, ScontoCategoria FROM Visitatori";
+                        $result_category = $conn->query($sql_category);
+                        while ($row_category = $result_category->fetch_assoc()) {
+                            if ($row_category["Descrizione"] == $categoria) {
+                                $tariffa = $tariffa - (($tariffa * $row_category["ScontoCategoria"]) / 100);
+                            }
                         }
-                        if ($servizio === 'audio') {
-                            $tariffaTotale += 10 * $quantita; // Prezzo per audioguida
-                            $servizio = 1;
-                        } elseif ($servizio === 'guida') {
-                            $tariffaTotale += 12 * $quantita; // Prezzo per guida
-                            $servizio = 2;
-                        } elseif ($servizio === 'mappa') {
-                            $tariffaTotale += 1 * $quantita; // Prezzo per mappa
-                            $servizio = 3;
+
+                        //dettagli prezzo per servizio
+                        $sql_service = "SELECT DescrizioneS, PrezzoAccessorio FROM Servizio";
+                        $result_service = $conn->query($sql_service);
+                        while ($row_service = $result_service->fetch_assoc()) {
+                            if ($row_service["DescrizioneS"] == $servizio) {
+                                $tariffa = $tariffa + $row_service["PrezzoAccessorio"];
+                            }
                         }
                         /*if ($evento === 'Basquiat') {
                     $evento = 2;
@@ -185,7 +175,7 @@
 
 
                         $stmt = $conn->prepare("INSERT INTO Biglietto (Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio) VALUES (?, ?, ?, ?, ?, ?)");
-                        $stmt->bind_param("sidsii", $email, $evento, $tariffaTotale, $data, $categoria, $servizio);
+                        $stmt->bind_param("sidsii", $email, $evento, $tariffa, $data, $categoria, $servizio);
                         date_default_timezone_set('Italy/Rome');
                         $date = date('m/d/Y h:i:s a', time());
 
@@ -198,7 +188,7 @@
                             $stmt->execute();
                         }
 
-                        $stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");
+                        /*$stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");
                         $stmt1->execute();
                         $result1 = $stmt1->get_result();
                         $temp = 0;
@@ -207,7 +197,7 @@
                             if ($row1["Mail"] == $_SESSION["email"]) {
                                 $_SESSION["id"] = $row1["IDBiglietto"];
                             }
-                        }
+                        }*/
 
 
 
