@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($_POST['email'] || empty($_POST['password']))){
         echo("Dati mancanti");
     }else {
-        $email = htmlentities($_POST['email']);
+        $email = strtolower(htmlentities($_POST['email']));
         $password = htmlentities($_POST['password']);
 
     }

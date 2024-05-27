@@ -90,7 +90,7 @@
 
     <div class="hero_section_04">
         <h2>Solo a <strong>MUSEO2000</strong> vedi <strong>2000 anni</strong> di storia e arte</h2>
-        <button onclick="location.href='../login.php'">Registrati Subito</button>
+        <button onclick="location.href='register.php'">Registrati Subito</button>
     </div>
 
     <?php //header

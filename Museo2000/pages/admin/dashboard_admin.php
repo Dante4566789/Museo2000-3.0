@@ -11,7 +11,7 @@
 
 <body>
 
-    <header>
+    <!--<header>
         <a href="../../../Museo2000/pages/home.php" class="logo">Museo2000</a>
         <ul>
             <li><a href="../../pages/visits.php">Visitaci</a></li>
@@ -21,11 +21,16 @@
 
         </ul>
 
-    </header>
+    </header>-->
+
+    <?php
+    include ("../../php/components/header.php");
+    ?>
+
     <?php
     session_start();
 
-    include("../../php/server/connection.php");
+    include ("../../php/server/connection.php");
 
 
     if ($_SESSION["tipo"] != "A") {
@@ -43,7 +48,7 @@
             <h1>Pagina Admin</h1>
     </section>
     <script type="text/javascript">
-        window.addEventListener("scroll", function() {
+        window.addEventListener("scroll", function () {
             var header = document.querySelector("header");
             header.classList.toggle("sticky", window.scrollY > 0);
         })
@@ -59,8 +64,9 @@
             echo "<h1>";
             echo "Salve," . $_SESSION['nome'];
             echo "</h1>"
-            ?>
-            <h2>Questa è la pagina admin, qui potrai aggiungere o eliminare un evento, modificare i prezzi degli eventi o delle visite , oppure richiede dell'assistenza da parte dei tecnici del sito</h2>
+                ?>
+            <h2>Questa è la pagina admin, qui potrai aggiungere o eliminare un evento, modificare i prezzi degli eventi
+                o delle visite , oppure richiede dell'assistenza da parte dei tecnici del sito</h2>
 
 
         </div>
@@ -71,7 +77,7 @@
                 <label>Nome dell'evento : </label>
                 <select name="select_remove">
                     <?php
-                    include("../../php/server/connection.php");
+                    include ("../../php/server/connection.php");
 
                     $sql = "SELECT DescrizioneE FROM Evento";
                     $result = $conn->query($sql);
@@ -95,7 +101,7 @@
             </form>
             <?php
 
-            include("../../php/server/connection.php");
+            include ("../../php/server/connection.php");
 
             function removeEvents($conn)
             {
@@ -139,7 +145,7 @@
                 <button type="submit" name="update">Aggiorna sito</button>
             </form>
             <?php
-            include("../../php/server/connection.php");
+            include ("../../php/server/connection.php");
             function updateEvents($conn)
             {
                 $nomeEvento = $_POST["nome"];
@@ -176,7 +182,7 @@
                 <label>Scegli l'evento da modificare</label>
                 <select name="select_modPrezzi">
                     <?php
-                    include("../../php/server/connection.php");
+                    include ("../../php/server/connection.php");
 
                     $sql = "SELECT DescrizioneE FROM Evento";
                     $result = $conn->query($sql);
@@ -201,7 +207,7 @@
             </form>
 
             <?php
-            include("../../php/server/connection.php");
+            include ("../../php/server/connection.php");
             function modifyPrice($conn)
             {
                 $nomeEvento = $_POST["select_modPrezzi"];
@@ -242,7 +248,7 @@
             </form>
 
             <?php
-            include("../../php/server/connection.php");
+            include ("../../php/server/connection.php");
             function modificaEvento($conn)
             {
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -283,21 +289,131 @@
             ?>
         </div>
 
-        <div class="logout section_admin">
-            <h1>Logout</h1>
-            <form method="POST">
-                <button type="submit" name="Logout">Esci</button>
+
+
+        <div class="section_admin numBiglietti" id="numero">
+            <h1>Numero di Biglietti Venduti</h1>
+            <form method="POST" action="/Museo2000/pages/admin/dashboard_admin.php#numero">
+                <label>Nome dell'esposizione</label>
+                <input type="text" name="evento"></input>
+                <button type="submit" name="numBiglietti">Controlla il numero delle esposizioni</button>
             </form>
 
             <?php
-            
-                if (isset($_POST["Logout"])) {
-                    header("Location: destroy.php");
+
+            include ("../../php/server/connection.php");
+
+            function numero($conn)
+            {
+                $evento = $_POST["evento"];
+
+                $result1 = $conn->query("SELECT DescrizioneE, IDEvento FROM Evento");
+                //$stmt1->execute();
+                //$result1 = $stmt1->get_result();
+                while ($row = $result1->fetch_assoc()) {
+                    if ($row["DescrizioneE"] == $evento) {
+                        //$numE = $row["IDEvento"];
+                        $numE = $row["IDEvento"];
+                    }
+
                 }
 
-            
+
+
+
+
+
+                $stmt = $conn->prepare("SELECT COUNT(Evento) as numero FROM Biglietto WHERE Evento = ? GROUP BY Evento");
+
+                $stmt->bind_param("i", $numE);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $row1 = $result->fetch_assoc();
+                $numBiglietti = $row1["numero"];
+                if(isset($numBiglietti) && $numBiglietti > 0) {
+                    echo "<p style='font-size:25px;'><strong>" . $numBiglietti . " Biglietti venduti.</strong></p>";
+                }else{
+                    echo "<p>Non è stato possibile trovare l'evento</p>";
+                }
+            }
+
+            if (isset($_POST["numBiglietti"])) {
+                numero($conn);
+            }
+
+
             ?>
-         
+
+
+        </div>
+
+        <div class="section_admin TotalEarn" id="earn">  
+
+            <h1>Guadagno totale di un'evento</h1>
+            <form method="POST" action="/Museo2000/pages/admin/dashboard_admin.php#earn">
+
+                <label>Inserisci nome dell'esposizione</label>
+                <input type="text" name="evento"></input>
+                <button type="submit" name="TotalEarn">Controlla</button>
+
+            </form>
+            <?php
+
+            include ("../../php/server/connection.php");
+
+            function guadagno($conn)
+            {
+                $evento = $_POST["evento"];
+
+                $result1 = $conn->query("SELECT DescrizioneE, IDEvento FROM Evento");
+                //$stmt1->execute();
+                //$result1 = $stmt1->get_result();
+                while ($row = $result1->fetch_assoc()) {
+                    if ($row["DescrizioneE"] == $evento) {
+                        //$numE = $row["IDEvento"];
+                        $numE = $row["IDEvento"];
+                    }
+
+                }
+
+
+
+
+
+
+                $stmt = $conn->prepare("SELECT SUM(TariffaTotale) as prezzo FROM Biglietto WHERE Evento = ? GROUP BY Evento");
+
+                $stmt->bind_param("i", $numE);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $row1 = $result->fetch_assoc();
+                $prezzo = $row1["prezzo"];
+                if(isset($prezzo) && $prezzo != 0) {
+                    echo "<p style='font-size:25px'><strong>" . $prezzo . " €.</strong></p>";
+                }else{
+                    echo "<p>Non è stato possibile vedere il prezzo di questo evento</p>";
+                }
+            }
+
+            if (isset($_POST["TotalEarn"])) {
+                guadagno($conn);
+            }
+
+
+            ?>
+
+        </div>
+
+
+        <div class="logout section_admin">
+            <h1>Logout</h1>
+            <form method="POST" action="destroy.php">
+                <button type="submit" name="Logout">Esci</button>
+            </form>
+
+
+
+
 
 
         </div>
