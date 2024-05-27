@@ -314,12 +314,12 @@
                                         <!-- horizontal spacing/background color -->
                                         <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 0px; padding-top: 30px; padding-right: 30px; padding-left: 30px; mso-line-height-rule: exactly; border-top: 2px solid #CCCCCC;">
                                             <table class="m-width--100p m-float--center" width="100%" align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 0px auto;">
-                                                <!-- logo -->
+                                                <!-- logo 
                                                 <tr>
                                                     <td class="m-pad-t--20" width="100%" align="center" border="0" style="width: 100%; padding: 0px; mso-line-height-rule: exactly;"><a href="#" target="_blank" style="" name="Footer_LogoName_image" alias="Footer_LogoName_image"><img class="m-width--100p" src="https://palladoriccardo.altervista.org/Museo2000/public/assets/template_02.png" border="0" style="display:block; margin:0px auto; max-width:150px !important;" width="150" height="" alt="AltTextHere"></a>
                                                     </td>
                                                 </tr>
-                                                <!-- text -->
+                                                text -->
                                                 <tr>
                                                     <td class="" width="100%" align="center" border="0" style="width: 100%; padding: 20px 0px; padding-top: 20px; mso-line-height-rule: exactly;">
                                                         <p class="m-textAlign--center" style="padding: 0px; margin: 0; font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; font-weight: 400; color: #041727; mso-line-height-alt: 20px; line-height: 1.4; letter-spacing: normal; text-align: center;">Museo 2000, Copyright</p>

@@ -1578,6 +1578,10 @@ header.sticky ul li a {
 }
 
 @media (max-width: 575px) {
+
+  .font25 {
+    font-size: 14px;
+  }
   
   .banner_home {
     display: flex;
@@ -1818,12 +1822,13 @@ header.sticky ul li a {
   flex-direction : column;
   justify-content: center; 
   align-items: center;
+  padding-top:50px;
   
 }
 .ev h1{
   text-align: center;
-  font-size : 30px;
-  padding-bottom : 25px;
+  font-size : 20px;
+  padding-bottom : 15px;
 }
 .ev .wrapper_ev{
   width: 321px;
@@ -1841,7 +1846,7 @@ header.sticky ul li a {
   gap : 0px;
 }
 .ev label{
-  font-size : 20px;
+  font-size : 15px;
   font-weight: bold;
 }
 
