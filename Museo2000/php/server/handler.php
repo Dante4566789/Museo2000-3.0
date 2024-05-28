@@ -23,9 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-session_start([
-    'cookie_lifetime' => 86400,
-]);
+session_start();
 $_SESSION['email'] = $email;
 $_SESSION['password'] = $password;
 
