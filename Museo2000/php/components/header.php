@@ -46,9 +46,9 @@
                     } else if (session_status) {
                         tipo = '<?php echo $_SESSION["tipo"]; ?>';
                         if (tipo == 'U') {
-                            window.location.href = "../pages/admin/dashboard_user.php";
+                            window.location.href = "/Museo2000/pages/admin/dashboard_user.php";
                         } else {
-                            window.location.href = "../pages/admin/dashboard_admin.php";
+                            window.location.href = "/Museo2000/pages/admin/dashboard_admin.php";
                         }
                     }
 

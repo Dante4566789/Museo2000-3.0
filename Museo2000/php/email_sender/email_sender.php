@@ -1,9 +1,11 @@
 <?php
 
-
+include("../server/connection.php");
 session_start();
 
 $template_file = "template/template_1.php";
+
+
 
 
 $swap_var = array(
@@ -13,6 +15,9 @@ $swap_var = array(
     "{quantita}" => $_SESSION["quantita"],
     "{id}" => $_SESSION["id"]
 );
+
+
+
 
 $to      = $_SESSION["email"];
 $subject = 'Prenotazione del biglietto';

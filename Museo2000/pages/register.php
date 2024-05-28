@@ -32,9 +32,6 @@
           <input type="password" name="password" placeholder="Password" required>
           <i class='bx bxs-lock-alt'></i>
         </div>
-        <div class="remember-forgot">
-          <label><input name="checkbox" type="checkbox">Ricordati di me</label>
-        </div>
         <button type="submit" name="registrati" class="btn">Registrati</button>
         <div class="register-link">
           <p>Vai alla home <a href="home.php">Home</a></p>

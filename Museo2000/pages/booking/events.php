@@ -14,17 +14,7 @@
 
 <body>
     <div class="container_ev ev_back Login">
-        <header>
-            <a href="../../../Museo2000/pages/home.php" class="logo">Museo2000</a>
-            <ul>
-                <li><a href="../../pages/visits.php">Visitaci</a></li>
-                <li><a href="../../pages/home.php#about">About</a></li>
-                <li><a href="../../pages/events.php">Eventi</a></li>
-                <li><a href="../../pages/login.php">Login</a></li>
-
-            </ul>
-
-        </header>
+        <?php include("../../php/components/header.php") ?>
         <script type="text/javascript">
             window.addEventListener("scroll", function () {
                 var header = document.querySelector("header");
@@ -186,6 +176,14 @@
                                 exit();
                             }
                             $stmt->execute();
+                            $stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");
+                            $stmt1->execute();
+                            $result1 = $stmt1->get_result();
+                            while ($row1 = $result1->fetch_assoc()) {
+                                if ($row1["Mail"] == $_SESSION["email"]) {
+                                    $_SESSION["id"] = $row1["IDBiglietto"];
+                                }
+                            }
                         }
 
                         /*$stmt1 = $conn->prepare("SELECT IDBiglietto,Mail, Evento, TariffaTotale, DataValidità, Categoria, Servizio FROM Biglietto ORDER BY IDBiglietto DESC");

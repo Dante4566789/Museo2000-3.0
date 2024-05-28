@@ -14,17 +14,7 @@
 
 <body>
     <div class="container_ev vi">
-        <header>
-            <a href="../../../Museo2000/pages/home.php" class="logo">Museo2000</a>
-            <ul>
-                <li><a href="../../pages/visits.php">Visitaci</a></li>
-                <li><a href="../../pages/home.php#about">About</a></li>
-                <li><a href="../../pages/events.php">Eventi</a></li>
-                <li><a href="../../pages/login.php">Login</a></li>
-
-            </ul>
-
-        </header>
+        <?php include("../../php/components/header.php") ?>
         <script type="text/javascript">
             window.addEventListener("scroll", function() {
                 var header = document.querySelector("header");
