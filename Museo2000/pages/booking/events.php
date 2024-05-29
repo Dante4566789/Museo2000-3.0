@@ -14,7 +14,7 @@
 
 <body>
     <div class="container_ev ev_back Login">
-        
+
         <script type="text/javascript">
             window.addEventListener("scroll", function () {
                 var header = document.querySelector("header");
@@ -98,6 +98,10 @@
                     </select><br>
                     <br>
                     <input class="button" type="submit" value="Prenota" name="Prenota">
+                    <div class="register-link">
+                        <p style="padding-top : 20px; text-align: center;">Vai alla home <a href="../home.php">Home</a>
+                        </p>
+                    </div>
                 </form>
                 <?php
                 include '../../php/server/connection.php';

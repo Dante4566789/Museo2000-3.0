@@ -50,6 +50,9 @@
                     </select><br>
                     <br>
                     <input type="submit" value="Prenota" name="Prenota1">
+                    <div class="register-link">
+                        <p style="padding-top : 20px; text-align: center;">Vai alla home <a href="../home.php">Home</a></p>
+                    </div>
                 </form>
             </div>
         </div>

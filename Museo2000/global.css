@@ -699,7 +699,7 @@ button:hover {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-height: 140vh;
+  min-height: 100vh;
   
   background-size: cover;
   background-position: center;
