@@ -5,18 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museo2000</title>
-  <link rel="stylesheet" href="../global.css?v=2784">
-  <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+  <link rel="stylesheet" href="global.css?v=2784">
+  <link rel="icon" type="image/x-icon" href="public/favicon.ico">
 </head>
 
 <body>
   <?php //header
-  include("../php/components/header.php");
+  include("php/components/header.php");
   session_start();
   ?>
   <div class="banner_home">
-    <video autoplay loop muted plays-inline poster="../public/assets/home_banner.jpg" class="video">
-      <source src="../public/assets/slider.mp4" type="video/mp4" />
+    <video autoplay loop muted plays-inline poster="public/assets/home_banner.jpg" class="video">
+      <source src="public/assets/slider.mp4" type="video/mp4" />
     </video>
     <div class="overlay"></div>
     <div class="hero_box_text">
@@ -41,7 +41,7 @@
   <!--1 hero section-->
   <div id="about"></div>
   <div class="hero_section_01">
-    <img src="../public//assets/home_04.png">
+    <img src="public//assets/home_04.png">
     <div class="hero_text">
       <h1>Visita il Nostro Museo!</h1>
       <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
@@ -66,7 +66,7 @@
         }
       </script>
     </div>
-    <img src="../public/assets/home_05.jpg">
+    <img src="public/assets/home_05.jpg">
     <div class="hero_text_vertical">
       <p class="hero_text_normal">Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione</p>
       <button class="hero_section_02_button_02" onclick="redirect3()">EVENTI</button>
@@ -83,7 +83,7 @@
   <!--hero section 3-->
   <div class="hero_section_03 p6">
     <div class="hero_section_03_img grid_section_03">
-      <img src="../public/assets/home_06.jpg">
+      <img src="public/assets/home_06.jpg">
     </div>
     <div class="hero_section_03_text grid_section_03">
       <h1 style="text-align:left">Informazioni</h1>
@@ -144,7 +144,7 @@
   <!--footer-->
   <footer>
     <?php
-    include("../php/components/footer.php")
+    include("php/components/footer.php")
     ?>
   </footer>
 </body>

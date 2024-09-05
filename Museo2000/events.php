@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../global.css?">
-    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    <link rel="stylesheet" href="global.css?">
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
     <title>Museo2000</title>
 </head>
 
 <body>
     <?php //header
-    include("../php/components/header.php");
+    include("php/components/header.php");
     session_start();
     ?>
     <section class="banner_home home_01 p5">
@@ -41,7 +41,7 @@
 
     <div class="v1">
         <div class="image_v1">
-            <img src="../public/assets/events/basquiat.webp" id="v1">
+            <img src="public/assets/events/basquiat.webp" id="v1">
         </div>
         <div class="text_v1">
             <h1>Basquiat</h1>
@@ -58,7 +58,7 @@
 
     <div class="v1 reverse">
         <div class="image_v1 ">
-            <img src="../public/assets/events/van_gogh.jpg" id="v1">
+            <img src="public/assets/events/van_gogh.jpg" id="v1">
         </div>
         <div class="text_v1">
             <h1>Van Gogh</h1>
@@ -74,7 +74,7 @@
 
     <div class="v1 ">
         <div class="image_v1">
-            <img src="../public/assets/events/Frida_Khalo.jpg" id="v1">
+            <img src="public/assets/events/Frida_Khalo.jpg" id="v1">
         </div>
         <div class="text_v1">
             <h1>Frida Khalo</h1>
@@ -146,7 +146,7 @@
 
     <footer>
         <?php
-        include("../php/components/footer.php")
+        include("php/components/footer.php")
         ?>
     </footer>
 

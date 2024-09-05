@@ -56,6 +56,9 @@ header ul {
 header ul li img{
   width : 30px;
 }
+.utenti:hover{
+    cursor : pointer;
+}
 
 header.sticky ul {
   right: 0px;

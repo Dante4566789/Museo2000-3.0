@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo2000</title>
-    <link rel="stylesheet" href="../global.css?">
-    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    <link rel="stylesheet" href="global.css?">
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
 </head>
 
 <body>
 
     <!--header-->
     <?php //header
-    include("../php/components/header.php");
+    include("php/components/header.php");
    
     ?>
 
@@ -37,7 +37,7 @@
 
 <div class="hero_section_03 p6">
     <div class="hero_section_03_img grid_section_03">
-      <img src="../public/assets/home_03.png" id="about">
+      <img src="public/assets/home_03.png" id="about">
     </div>
     <div class="hero_section_03_text grid_section_03">
       <h1>Informazioni</h1>
@@ -94,7 +94,7 @@
     </div>
 
     <?php //header
-    include("../php/components/footer.php")
+    include("php/components/footer.php")
     ?>
 
 </body>

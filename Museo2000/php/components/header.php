@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Museo2000</title>
-    <link rel="stylesheet" href="../../globall.css?v=1">
+    <link rel="stylesheet" href="Museo2000/global.css?v=1">
     <script src="https://kit.fontawesome.com/5ebde279c1.js" crossorigin="anonymous"></script>
 
 </head>
@@ -13,14 +13,14 @@
 <body>
 
     <header>
-        <a href="/Museo2000/pages/home.php"class="logo">Museo2000</a>
+        <a href="/Museo2000/index.php"class="logo">Museo2000</a>
        
 
         <ul>
-            <li><a href="/Museo2000/pages/visits.php">Visitaci</a></li>
-            <li><a href="/Museo2000/pages/home.php#about">About</a></li>
-            <li><a href="/Museo2000/pages/events.php">Eventi</a></li>
-            <li><img src="/Museo2000/public/assets/login_20.png" onclick="redirectone()"></img></li>
+            <li><a href="/Museo2000/visits.php">Visitaci</a></li>
+            <li><a href="/Museo2000/index.php#about">About</a></li>
+            <li><a href="/Museo2000/events.php">Eventi</a></li>
+            <li><img class="utenti" src="/Museo2000/public/assets/login_20.png" onclick="redirectone()"></img></li>
 
 
 
@@ -42,13 +42,13 @@
 
                     session_status = <?php echo (session_start()); ?>;
                     if (session_status == false) {
-                        window.location.href = "../pages/login.php";
+                        window.location.href = "../login.php";
                     } else if (session_status) {
                         tipo = '<?php echo $_SESSION["tipo"]; ?>';
                         if (tipo == 'U') {
-                            window.location.href = "/Museo2000/pages/admin/dashboard_user.php";
+                            window.location.href = "/Museo2000/admin/dashboard_user.php";
                         } else {
-                            window.location.href = "/Museo2000/pages/admin/dashboard_admin.php";
+                            window.location.href = "/Museo2000/admin/dashboard_admin.php";
                         }
                     }
 

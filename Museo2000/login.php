@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Museo2000</title>
-  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="global.css">
 
-  <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="public/favicon.ico">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
   <!--HTML-->
   <div class="Login">
     <div class="wrapper">
-      <form action="../php/server/handler.php"  method="POST">
+      <form action="php/server/handler.php"  method="POST">
         <h1>Login</h1>
         <div class="input-box">
           <input type="text" name="email" value="<?php echo isset($_COOKIE['mail']) ? $_COOKIE['mail'] : "";  ?>"placeholder="Email" required>
